@@ -1,0 +1,13 @@
+Ejercicio 1 
+
+Algoritmo para preparar un completo italiano
+
+
+Se debe Cocinar la vienesa, introducir la vienesa en el pan, ponerlos a calentar juntos. Se debe preparar la palta, cortar el tomate a gusto y tener a mano la mayonesa. Una vez preparado los elementos se procede a  añadir el tomate ya cortado sobre la vienesa en el pan, para posteriormente añadir la palta como cobertura de los elementos anteriores y finalmente agregar la mayonesa a gusto.
+
+Entradas: Pan, Vienesa, Palta, Tomate, Mayonesa 
+
+Proceso: Cocer la vienesa, introducir la vienesa al pan, calentar el conjunto, agregar el tomate, añadir la palta, agregar la mayonesa.
+
+Salida: Completo Italiano.
+
