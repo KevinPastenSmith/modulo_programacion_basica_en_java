@@ -1,0 +1,18 @@
+Ejercicio 3
+
+Algoritmo para calcular el rendimiento del combustible de un vehículo
+
+Crear un algoritmo que permita calcular el rendimiento del combustible de un vehículo en km/lt, identificar las entradas, los procesos, las salidas, variables y constantes, además se deberá indicar cuales son los tipos de datos de cada variable o constante.
+
+Variables
+Cantidad de Kilómetros recorridos: Float (Valor float asignado por el usuario)
+Cantidad de Litros consumidos en el trayecto: Float (Valor float asignado por el usuario)
+Rendimiento del combustible: Float (Valor float resultado de la operación de división entre los kilómetros recorridos y los litros consumidos en el trayecto.)
+
+Constante
+Unidad de medida del rendimiento del combustible: String (Tipo de dato String que conlleva 7 caracteres, esto corresponde a “¨[km/Lt]”)
+
+
+Entradas: Cantidad de Kilómetros recorridos, Cantidad de Litros consumidos en el trayecto
+Proceso: El algoritmo pide ingresar la cantidad de kilómetros recorridos, se ingresan el valor por parte del usuario, el algoritmo pide ingresar la cantidad de litros consumidos en el trayecto, el usuario ingresa el valor, el algoritmo calcula mediante la operación de división el rendimiento del combustible arrojando un valor tipo float (Cantidad de kilómetros recorridos/Cantidad de litros consumidos en el trayecto), el algoritmo imprime en pantalla el valor del rendimiento del combustible seguido de la constante que es la unidad de medida de dicho valor.
+Salida: Rendimiento de combustible en [km/Lt]
