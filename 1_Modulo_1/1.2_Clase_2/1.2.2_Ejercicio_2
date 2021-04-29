@@ -1,0 +1,30 @@
+Ejercicio_2
+definición del tipo de dato “Int”
+
+Un tipo de dato entero en computación es un tipo de dato que puede representar un subconjunto finito de los números enteros. El número mayor que puede representar depende del espacio usado por el dato y la posibilidad (o no) de representar números negativos. Los tipos de dato entero disponibles y su tamaño dependen del lenguaje de programación usado, así como la arquitectura en cuestión. Por ejemplo, si para almacenar un número entero disponemos de 4 bytes de memoria tememos que:
+4 bytes = 4 × 8 = 32 bits
+
+Con 32 bits se pueden representar 232=4294967296 valores:
+•	Solo positivos (enteros sin signo): del 0 al 4294967295
+•	Positivos y negativos (enteros con signo): del -2147483648 al 2147483647
+
+Las típicas operaciones aritméticas: suma, resta, multiplicación y división se pueden realizar con datos de tipo entero. En el caso de la división, el resultado podría ser un valor real, en ese caso, si el resultado se ha de almacenar como entero la parte decimal del resultado deberá ser eliminada, en principio hay dos métodos para hacerlo:
+
+•	El redondeo: Aproximar el valor real al entero más cercano (Ej: 3,8-->4 / 3,2-->3)
+•	El truncamiento: Eliminar del valor real la parte decimal (Ej: 3,8-->3 / 3,2-->3)
+Otra operación importante que se puede realizar con número enteros es la operación de módulo o resto de la división entera, es decir:
+
+184 dividido 3 = 61 (residuo 1) --> 184 módulo 3 = 1
+
+En general la operación módulo cumple que:
+a mod b = c
+c ≥ 0
+c < b
+•	sí c es igual a 0 --> a es múltiplo de b
+•	sí c es igual a 0 y b es igual a 2n (siendo n un número entero mayor o menor a 0) --> a (Es Par)
+
+Ejemplos de valores enteros
+
+1.	Cantidad de personas que realizan una acción. 
+2.	Sistema binario. (solo 0 y 1)
+3.	Multiplicación de dos números enteros
