@@ -1,0 +1,15 @@
+Ejercicio 1
+
+Identificar las variables en el ejercicio para la preparación de un completo italiano
+
+Dependiendo del tipo de problema a resolver o lo que quiero lograr con mi algoritmo, cada uno de los ingredientes podría ser una variable o podría existir solo una variable que se llame ingrediente y esta variable podría tomar distintos valores.
+
+En este caso particular, las variables serán individuales.
+
+Variables:
+
+Tipo de Pan: Pan de Mesa
+Tipo de Vienesa: Pavo
+Tipo de Palta: Hass
+Tipo de Tomate: Cherry
+Marca de Mayonesa: Hellmans
