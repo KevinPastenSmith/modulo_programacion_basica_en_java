@@ -1,0 +1,37 @@
+Ejercicio_4
+
+Crear un algoritmo que permita realizar una compra online, identificar las entradas, procesos, salidas, variables, constantes y tipos de datos.
+El inicio del problema puede variar dependiendo si originalmente estoy buscando un producto y quiero evaluar entre ofertantes, o si quiero buscar un proveedor en especifico y evaluar que productos tiene para ofrecer. En este caso se opta por basar la búsqueda entorno a un producto “X”.
+
+Variables:
+
+ 
+Nombre_de_Navegador: String
+Nombre_de_Producto: String
+Nombre_Sitio_web: String
+Nombre_comprador: String
+Mail_comprador: String
+rut_comprador: int
+numero_telefonico_comprador: int
+dirección_comprador: string
+contraseña_tienda_comprador: string
+contraseña_bancaria_comprador: string
+coordenadas_pago_comprador: int
+método_pago_comprador: string
+precio_base_producto: int
+precio_iva_producto: float
+precio_total_producto: float
+costo_envio: int
+Costo_total_compra: float
+numero_tarjeta_credito: int
+numero_verificador, fecha_vencimiento: int
+nombre_tarjeta_credito: string
+nombre_tarjeta_debito: string
+ 
+
+
+Entradas: Nombre_de_Navegador, Nombre_de_Producto, Nombre_Sitio_web, Nombre_comprador, mail_comprador, rut_comprador, numero_telefonico_comprador, dirección_comprador, contraseña_tienda_comprador, contraseña_bancaria_comprador, coordenadas_pago_comprador, método_pago_comprador, precio_base_producto, precio_iva_producto, precio_total_producto, costo_envio, Costo_total_compra, numero_tarjeta_credito, numero_verificador, fecha_vencimiento, nombre_tarjeta_credito, nombre_tarjeta_debito
+
+Proceso: Seleccionar el buscador a utilizar, abrir dicho buscador e insertar el nombre del producto a comprar, seleccionar un sitio web para realizar la compra, buscar el producto que se desea comprar, seleccionar en base a los requerimientos que se necesitan, cliquear en el botón de compra, si posee una cuenta previamente en el sitio web, proceder al calculo del precio del producto, de no ser así, crear una cuenta nueva, en este caso insertar nombre, apellidos, numero de teléfono, dirección, mail, opcionalmente predefinir un método de pago, proceder al calculo del precio total del producto sumando el precio base del producto más el IVA en caso de poseer, sino, solo se considera el precio base, calcular costos de envió sumando el precio base mas IVA junto con el precio de despacho según localización, confirmar datos para la boleta o factura, confirmar precio final de la compra, seleccionar método de pago, si ya se estableció previamente, ingresar datos que falten de ser así, si están todos los datos necesarios proceder a pagar y finalizar la compra, de no poseer previamente el método de pago, se debe seleccionar uno, si es por tarjeta de crédito ingresar el numero de tarjeta, numero verificador, fecha de vencimiento, si es por tarjeta de débito, ingresar el sistema de pago más conveniente, insertar Rut del comprador, contraseña de la entidad bancaria, ingresar coordenadas de la tarjeta de pago, pagar.
+
+Salida: Compra online de un producto
