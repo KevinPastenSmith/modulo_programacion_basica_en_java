@@ -1,0 +1,3 @@
+Reflexión_Clase_2
+
+Durante esta sesión comprendí que las variables pueden estar compuestas por diversos tipos de datos, estos dependerán del objetivo de mi algoritmo. Estos tipos de datos permiten realizar cierto tipo de operaciones concretas y deben estar bien definidas. Existen datos de tipo numérico como los “int” (números enteros) o los float/doublé (números con decimales). También hay datos del tipo carácter (“char”) o cadena de caracteres (“String”), también existen datos del tipo booleanos, que nos permiten responder a una condición con la connotación de verdadero, falso o nulo.
