@@ -1,0 +1,71 @@
+1.3.2_Ejercicio_1
+
+Crear un algoritmo que permita recibir los últimos 6 meses de remuneraciones de un trabajador para este año y para el año anterior. Luego calcule los promedios de cada año y si el año actual las remuneraciones disminuyeron por lo menos un 20% indique que es acreedor de un bono por $500-000.
+
+
+Variables
+ 
+ 
+Var Remuneración_Año_actual_1=RAA1 (Variable tipo “int”)
+Var Remuneración_Año_actual_2=RAA2 (Variable tipo “int”)
+Var Remuneración_Año_actual_3=RAA3 (Variable tipo “int”)
+Var Remuneración_Año_actual_4=RAA4 (Variable tipo “int”)
+Var Remuneración_Año_actual_5=RAA5 (Variable tipo “int”)
+Var Remuneración_Año_actual_6=RAA6 (Variable tipo “int”) 
+
+Var Remuneración_Año_Pasadol_1=RAP1 (Variable tipo “int”)
+Var Remuneración_Año_Pasadol_2=RAP2 (Variable tipo “int”)
+Var Remuneración_Año_Pasadol_3=RAP3 (Variable tipo “int”)
+Var Remuneración_Año_Pasadol_4=RAP4 (Variable tipo “int”)
+Var Remuneración_Año_Pasadol_5=RAP5 (Variable tipo “int”)
+Var Remuneración_Año_Pasadol_6=RAP6 (Variable tipo “int”)
+
+
+
+
+
+
+Entradas
+
+“Ingresar el valor de Remuneración_Año_actual_1” 
+Establecer RAA1=Valor Ingresado por usuario
+“Ingresar el valor de Remuneración_Año_actual_2” 
+Establecer RAA2=Valor Ingresado por usuario
+“Ingresar el valor de Remuneración_Año_actual_3” 
+Establecer RAA3=Valor Ingresado por usuario
+“Ingresar el valor de Remuneración_Año_actual_4” 
+Establecer RAA4=Valor Ingresado por usuario
+“Ingresar el valor de Remuneración_Año_actual_5” 
+Establecer RAA5=Valor Ingresado por usuario
+“Ingresar el valor de Remuneración_Año_actual_6” 
+Establecer RAA6=Valor Ingresado por usuario
+
+“Ingresar el valor de Remuneración_Año_Pasado_1” 
+Establecer RAP1=Valor Ingresado por usuario
+“Ingresar el valor de Remuneración_Año_Pasado_2” 
+Establecer RAP2=Valor Ingresado por usuario
+“Ingresar el valor de Remuneración_Año_Pasado_3” 
+Establecer RAP3=Valor Ingresado por usuario
+“Ingresar el valor de Remuneración_Año_Pasado_4” 
+Establecer RAP4=Valor Ingresado por usuario
+“Ingresar el valor de Remuneración_Año_Pasado_5” 
+Establecer RAP5=Valor Ingresado por usuario
+“Ingresar el valor de Remuneración_Año_Pasado_6” 
+Establecer RAP6=Valor Ingresado por usuario
+ 
+
+
+
+Proceso
+
+Promedio_año_actual=(RAA1+RAA2+RAA3+RAA4+RAA5+RAA6)/6
+Promedio_año_pasado=(RAP1+RAP2+RAP3+RAP4+RAP5+RAP6)/6
+
+Si Promedio_año_actual<( Promedio_año_pasado- (Promedio_año_pasado*0,2)) entonces “es acreedor de un bono por $500.000”
+
+
+Salida
+“es acreedor de un bono por $500.000”
+
+
+
