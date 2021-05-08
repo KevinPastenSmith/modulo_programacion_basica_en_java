@@ -1,0 +1,37 @@
+package Ejercicio183;
+
+import java.util.Scanner;
+
+public class EjercicioFactorial {
+
+	public static void main(String[] args) {
+		
+		Scanner lector=new Scanner(System.in);
+		int n;
+		System.out.println("ingrese el numero para realizar la operacion factorial");
+		n=lector.nextInt();
+		int contador=1;
+		int resultado=1;
+		do {
+			
+			resultado=contador*resultado;
+			
+				
+			System.out.print("x "+contador+" ");
+			
+			contador++;
+			
+		}while(contador<=n);
+		
+		System.out.println();
+		System.out.println("el factorial de n es: "+resultado);
+		
+		
+		
+		
+		lector.close();
+		
+
+	}
+
+}
