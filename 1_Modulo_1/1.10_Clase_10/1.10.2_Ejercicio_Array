@@ -1,0 +1,44 @@
+package EjercicioArreglos;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class EjercicioArrayMayoresDeEdad {
+
+	public static void main(String[] args) {
+		Scanner lector = new Scanner(System.in);
+		int n;
+		int[]mayores_de_edad;
+		mayores_de_edad=new int[10];
+		int i;
+		
+		for(i=0;i<10;i++) {
+			System.out.print("ingrese la edad de la persona numero "+(i+1)+": ");
+			n = lector.nextInt();
+			if(n>=18) {
+				mayores_de_edad[i]=n;
+			
+				
+			}
+			else {
+				System.out.println("esa persona no es mayor de edad, ingrese otra");
+				i=(i-1);
+			}
+			
+		}
+		Arrays.sort(mayores_de_edad);
+		System.out.println("");
+		System.out.print("Las edades son: [");
+		for(i=0;i<=9;i++) {
+		
+			
+			System.out.print(mayores_de_edad[i]+", ");
+			}
+		
+		System.out.println("]");
+	lector.close();
+	}//final main
+
+	
+	
+}//final clase
