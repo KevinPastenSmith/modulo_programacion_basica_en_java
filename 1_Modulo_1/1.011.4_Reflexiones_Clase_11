@@ -1,0 +1,9 @@
+Reflexiones_Clase_11
+
+Durante esta sesión he podido poner a prueba mis habilidades de búsqueda e interpretación de información, pudiendo complementar mis conocimientos y con esto plantear de una forma mas optimizada mi idea de proyecto.
+He adquirido conocimientos sobre la arquitectura de software llamada modelo-vista-controlador, en donde en cierta forma se pretende separar el programa en 3 partes fundamentales que interactúan entre si para poder dar sustento al objetivo fundamental del programa. Por un lado, se tiene la sección de “vista” que alberga todos los métodos que interactúan directamente con el usuario. Esta también el “modelo”, cuya función principal es albergar la información que será procesada y finalmente el “controlador”, cuyo contenido se basa en los métodos que operan datos y realizan los procesos. Este controlador es el encargado de hacer la conexión entre la vista y el modelo.
+También pudo comprender como la metodología SOLID y sus 5 principios establecen un tipo de organización de trabajo recomendable para hacer más optimo el proyecto.
+Por último pude comprender mejor la forma de trabajar al estudiar sobre la programación orientada a objetos, en donde se establecen convenciones generales para escribir un programa, con el objetivo de que posea ciertas características que permitan al programador identificar cada sección del programa de mejor manera y optimizando así su trabajo.
+
+
+
