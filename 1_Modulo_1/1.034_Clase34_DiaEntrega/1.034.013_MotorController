@@ -1,0 +1,74 @@
+package controller;
+
+import model.MotorModel;
+import view.Mensajes;
+
+
+public class MotorController {
+
+	MotorModel motorModel = new MotorModel();
+	Mensajes mensajes = new Mensajes();
+	
+	//Metodo para definir el sentido de giro del motor
+	public String definirSentidoGiroMotor(int opcionSentidoGiroMotor){
+		
+		motorModel.setOpcionSentidoGiroMotor(opcionSentidoGiroMotor);
+		
+		if (opcionSentidoGiroMotor==1) {
+			motorModel.setSentidoGiroMotor("Horario");
+			System.out.println("Has establecido que el sentido de giro de tu motor sera "+motorModel.getSentidoGiroMotor());
+		}
+		else if (opcionSentidoGiroMotor==2) {
+			motorModel.setSentidoGiroMotor("Anti-horario");
+			System.out.println("Has establecido que el sentido de giro de tu motor sera "+motorModel.getSentidoGiroMotor());
+		}
+		else {
+			mensajes.MensajeReintento();
+		}
+		return obtenerSentidoGiroMotor();
+	}
+	
+	//Metodo para definir el lugar del transportador donde se instalara el motor
+	public String definirPosicionMotor(int opcionPosicionMotor) {
+		
+		motorModel.setOpcionPosicionMotor(opcionPosicionMotor);
+		
+		if (opcionPosicionMotor==1) {
+			motorModel.setPosicionMotor("Abajo");
+			System.out.println("Has establecido que la posicion referencial de tu transportador donde instalaras el motor es "+motorModel.getPosicionMotor());
+		}
+		else if (opcionPosicionMotor==2) {
+			motorModel.setPosicionMotor("Arriba");
+			System.out.println("Has establecido que la posicion referencial de tu transportador donde instalaras el motor es "+motorModel.getPosicionMotor());
+		}
+		
+		else {
+			mensajes.MensajeReintento();
+		}
+		return obtenerPosicionMotor();
+	}
+
+
+	//Metodos para obtener valores
+	
+		// Metodo para obtener la opcion del sentido de giro del motor
+	public int obtenerOpcionSentidoGiroMotor (){
+		return motorModel.getOpcionSentidoGiroMotor();
+	}
+	
+		//Metodo para obtener el sentido de giro del motor
+	public String obtenerSentidoGiroMotor (){
+		return motorModel.getSentidoGiroMotor();
+	}
+	
+		//Metodo para obtener la opcion de posicion del motor
+	public int obtenerOpcionPosicionMotor() {
+		return motorModel.getOpcionPosicionMotor();
+	}
+	
+		//Metodo para obtener la posicion del motor
+	public String obtenerPosicionMotor() {
+		return motorModel.getPosicionMotor();
+	}
+	
+}
