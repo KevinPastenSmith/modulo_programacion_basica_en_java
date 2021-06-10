@@ -1,0 +1,230 @@
+package model;
+
+public class TransportadorModel {
+
+	//Atributos
+	
+	// 1) Atributos para determinar Diametro del Helicoidal
+	private double diametroHelice; //Diametro del tornillo en milimetros [mm]
+	private double tamañoParticula; //tamaño maximo de particula en milimetros [mm]
+	
+	// 2) Atributos del tubo del transportador
+	private double diametroHelicePulgadas; //Diametro de la Helice en pulgadas
+	private double diametroTubo; //Diametro en pulgadas de la helice
+	
+	// 3) Atributos del Sentido de Giro 
+	private String sentidoRotacionTransportador; // sentido de rotacion del transportador
+	
+	// 4) Atributos para el sentido de la Helice
+	private String sentidoHelice; //sentido de la hélice
+
+	// 5) Atributos para El tipo de Helice
+	private String tipoHelice; // tipo de hélice
+	private int opcionHelice; // número de hélice a seleccionar
+	
+	// 6) Atributos para el Paso de la Helice
+	private double paso; // paso del tornillo en milimetros [mm]
+	
+	
+	// 7) Atributos para Velocidad de Giro del Transportador
+	private int velocidadGiro; //Velocidad estandar de giro [r.p.m.]
+	
+	// 8) Atributos para el Area de Relleno
+	private double diametroTornilloMetrico;// Diametro del tornillo en metros [m]
+	private double areaRelleno; // Área de relleno del transportador; [m2]
+	private double pi; // número pi [-]
+	private double coeficienteRelleno; //: Coeficiente de relleno de la sección [-]
+	
+	// 9) Atributos para la Velocidad de Transporte
+	private double velocidadDesplazamiento; // Velocidad de desplazamiento del transportador [m/s]
+	
+	// 10) Atributos para la Capacidad del transportador
+	private double CapacidadTransporte; //Flujo de material transportado [T/h]
+	private double rho; // es la densidad del material transportado [T/m3]
+	private double i; //Coeficiente de disminución, debido a la inclinación del transportador [-]
+	private int inclinacion; //grado de inclinacion del transportador [-]
+	
+	public TransportadorModel() {
+		super();
+	}
+
+	public TransportadorModel(double diametroHelice, double tamañoParticula, double diametroHelicePulgadas,
+			double diametroTubo, String sentidoRotacionTransportador, String sentidoHelice, String tipoHelice,
+			int opcionHelice, double paso, int velocidadGiro, double diametroTornilloMetrico, double areaRelleno,
+			double pi, double coeficienteRelleno, double velocidadDesplazamiento, double capacidadTransporte,
+			double rho, double i, int inclinacion) {
+		super();
+		this.diametroHelice = diametroHelice;
+		this.tamañoParticula = tamañoParticula;
+		this.diametroHelicePulgadas = diametroHelicePulgadas;
+		this.diametroTubo = diametroTubo;
+		this.sentidoRotacionTransportador = sentidoRotacionTransportador;
+		this.sentidoHelice = sentidoHelice;
+		this.tipoHelice = tipoHelice;
+		this.opcionHelice = opcionHelice;
+		this.paso = paso;
+		this.velocidadGiro = velocidadGiro;
+		this.diametroTornilloMetrico = diametroTornilloMetrico;
+		this.areaRelleno = areaRelleno;
+		this.pi = pi;
+		this.coeficienteRelleno = coeficienteRelleno;
+		this.velocidadDesplazamiento = velocidadDesplazamiento;
+		this.CapacidadTransporte = capacidadTransporte;
+		this.rho = rho;
+		this.i = i;
+		this.inclinacion = inclinacion;
+	}
+
+	public double getDiametroHelice() {
+		return diametroHelice;
+	}
+
+	public void setDiametroHelice(double diametroHelice) {
+		this.diametroHelice = diametroHelice;
+	}
+
+	public double getTamañoParticula() {
+		return tamañoParticula;
+	}
+
+	public void setTamañoParticula(double tamañoParticula) {
+		this.tamañoParticula = tamañoParticula;
+	}
+
+	public double getDiametroHelicePulgadas() {
+		return diametroHelicePulgadas;
+	}
+
+	public void setDiametroHelicePulgadas(double diametroHelicePulgadas) {
+		this.diametroHelicePulgadas = diametroHelicePulgadas;
+	}
+
+	public double getDiametroTubo() {
+		return diametroTubo;
+	}
+
+	public void setDiametroTubo(double diametroTubo) {
+		this.diametroTubo = diametroTubo;
+	}
+
+	public String getSentidoRotacionTransportador() {
+		return sentidoRotacionTransportador;
+	}
+
+	public void setSentidoRotacionTransportador(String sentidoRotacionTransportador) {
+		this.sentidoRotacionTransportador = sentidoRotacionTransportador;
+	}
+
+	public String getSentidoHelice() {
+		return sentidoHelice;
+	}
+
+	public void setSentidoHelice(String sentidoHelice) {
+		this.sentidoHelice = sentidoHelice;
+	}
+
+	public String getTipoHelice() {
+		return tipoHelice;
+	}
+
+	public void setTipoHelice(String tipoHelice) {
+		this.tipoHelice = tipoHelice;
+	}
+
+	public int getOpcionHelice() {
+		return opcionHelice;
+	}
+
+	public void setOpcionHelice(int opcionHelice) {
+		this.opcionHelice = opcionHelice;
+	}
+
+	public double getPaso() {
+		return paso;
+	}
+
+	public void setPaso(double paso) {
+		this.paso = paso;
+	}
+
+	public int getVelocidadGiro() {
+		return velocidadGiro;
+	}
+
+	public void setVelocidadGiro(int velocidadGiro) {
+		this.velocidadGiro = velocidadGiro;
+	}
+
+	public double getDiametroTornilloMetrico() {
+		return diametroTornilloMetrico;
+	}
+
+	public void setDiametroTornilloMetrico(double diametroTornilloMetrico) {
+		this.diametroTornilloMetrico = diametroTornilloMetrico;
+	}
+
+	public double getAreaRelleno() {
+		return areaRelleno;
+	}
+
+	public void setAreaRelleno(double areaRelleno) {
+		this.areaRelleno = areaRelleno;
+	}
+
+	public double getPi() {
+		return pi;
+	}
+
+	public void setPi(double pi) {
+		this.pi = pi;
+	}
+
+	public double getCoeficienteRelleno() {
+		return coeficienteRelleno;
+	}
+
+	public void setCoeficienteRelleno(double coeficienteRelleno) {
+		this.coeficienteRelleno = coeficienteRelleno;
+	}
+
+	public double getVelocidadDesplazamiento() {
+		return velocidadDesplazamiento;
+	}
+
+	public void setVelocidadDesplazamiento(double velocidadDesplazamiento) {
+		this.velocidadDesplazamiento = velocidadDesplazamiento;
+	}
+
+	public double getCapacidadTransporte() {
+		return CapacidadTransporte;
+	}
+
+	public void setCapacidadTransporte(double capacidadTransporte) {
+		CapacidadTransporte = capacidadTransporte;
+	}
+
+	public double getRho() {
+		return rho;
+	}
+
+	public void setRho(double rho) {
+		this.rho = rho;
+	}
+
+	public double getI() {
+		return i;
+	}
+
+	public void setI(double i) {
+		this.i = i;
+	}
+
+	public int getInclinacion() {
+		return inclinacion;
+	}
+
+	public void setInclinacion(int inclinacion) {
+		this.inclinacion = inclinacion;
+	}
+	
+}
