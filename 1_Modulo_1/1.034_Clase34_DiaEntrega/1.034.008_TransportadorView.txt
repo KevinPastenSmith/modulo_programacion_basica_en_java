@@ -1,0 +1,71 @@
+package view;
+
+import java.util.Scanner;
+
+import controller.MaterialController;
+import controller.MotorController;
+import controller.TransportadorController;
+
+public class TransportadorView {
+	 
+	Scanner lector = new Scanner (System.in);
+	Mensajes mensajes = new Mensajes();
+	TransportadorController transportadorController = new TransportadorController();
+	MaterialController materialController = new MaterialController();
+	MotorController motorController = new MotorController();
+	 
+	 
+	 public void main() {
+	
+		mensajes.mensajeInicialTransportador();
+		int item = 0;
+		
+		do {
+			
+			try {
+		
+				item=lector.nextInt();
+				switch(item) {
+				
+				 case 1: //definir diametro de helice
+				 		 transportadorController.definirDiametroHelice(lector.nextFloat(),materialController.obtenerTipoMezcla());
+				 		 
+				 		 
+				 case 2://definir el diametro nominal del tubo del transportador
+					 	 transportadorController.definirDiametroTubo(transportadorController.obtenerDiametroHelice());
+				 
+				 case 3://definir el sentido de giro del transportador
+					 	transportadorController.definirSentidoRotacionTransportador(motorController.obtenerSentidoGiroMotor(), motorController.obtenerPosicionMotor());
+				 
+				 case 4://definir el sentido de fabricacion de la helice
+					 	transportadorController.definirSentidoFabricacionHelice(transportadorController.obtenerSentidoGiroTransportador());
+				
+				 case 5://definir el tipo de helice
+					 	transportadorController.definirTipoHelice(transportadorController.obtenerOpcionHelice());
+					 
+				 case 6://definir el paso de la helice
+					 	transportadorController.definirPasoHelice(transportadorController.obtenerOpcionHelice());
+				 
+				 case 7://definir la velocidad de giro del transportador
+					 	transportadorController.definirVelocidadGiroTransportador(materialController.obtenerCategoriaPeso());
+				
+				 case 8://definir el area de relleno
+					 	transportadorController.definirAreaRelleno(materialController.obtenerOpcionClasificacionMaterial());
+				 
+				 case 9://definir la velocidad de desplazamiento de material
+					 	transportadorController.definirVelocidadDezplazamiento(transportadorController.obtenerVelocidadGiroTransportador(), transportadorController.obtenerPaso());
+				
+				 case 10://definir la capacidad del transportador (caudal masico transportable)
+					 	transportadorController.definirCapacidadTransportador(transportadorController.obtenerInclinacion());
+				 default: mensajes.MensajeReintento();
+					break;
+				}
+			}catch(Exception e){
+				mensajes.MensajeReintento();
+				lector.nextLine();
+			}
+			
+		}while(item<1 || item>10);	 
+		 
+	 }
+}
