@@ -1,0 +1,45 @@
+package view;
+
+import java.util.Scanner;
+
+import controller.MaterialController;
+import controller.MotorController;
+
+
+public class MotorView {
+	 
+	 Scanner lector = new Scanner (System.in);
+	 Mensajes mensajes = new Mensajes();
+	 MaterialController materialController = new MaterialController(); 	
+	 MotorController motorController = new MotorController();
+	 InformeFinalView informe = new InformeFinalView();
+	 
+	 public void main() {
+		 
+		 mensajes.mensajeInicialMotor();
+		
+		 do {
+			try {
+				motorController.definirSentidoGiroMotor(lector.nextInt());
+				}catch(Exception e){
+					mensajes.MensajeReintento();
+					lector.nextLine();
+				}	
+		 }while(motorController.obtenerOpcionSentidoGiroMotor()!=1 && motorController.obtenerOpcionSentidoGiroMotor()!=2);
+	
+		 mensajes.guiaDeterminarPosicionMotor();
+		 do {
+			try {
+				motorController.definirPosicionMotor(lector.nextInt());
+				}catch(Exception e){
+					mensajes.MensajeReintento();
+					lector.nextLine();
+				}	
+		 }while(motorController.obtenerOpcionPosicionMotor()!=1 && motorController.obtenerOpcionPosicionMotor()!=2);
+	 	
+	 System.out.println("Grandioso, ya has establecido los parametros operativos de tu motor que necesitas para deiseñar el sentido de fabricacion de tu helice");
+	 System.out.println("Y tambien para establecer el sentido de giro del transportador, esto es fundamental para que le material se mueva en la direccion que pretendes.");
+	 mensajes.separador();
+	 	
+	 }
+}
