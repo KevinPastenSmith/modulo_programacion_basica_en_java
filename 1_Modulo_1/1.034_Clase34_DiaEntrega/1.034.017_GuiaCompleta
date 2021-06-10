@@ -1,0 +1,168 @@
+package view;
+
+import java.util.Scanner;
+
+import controller.MaterialController;
+import controller.MotorController;
+import controller.TransportadorController;
+
+
+public class GuiaCompleta {
+	
+	 Scanner lector = new Scanner (System.in);
+	 Mensajes mensajes = new Mensajes();
+	 MaterialController materialController = new MaterialController(); 	
+	 MotorController motorController = new MotorController();
+	 TransportadorController transportadorController = new TransportadorController();
+	 InformeFinalView informe = new InformeFinalView();
+	
+	public void main() {
+		
+		//Seccion Material
+		mensajes.guiaDeterminarTipoMezcla(); //Conjunto de mensajes que guian a determinar el tipo de mezcla
+		mensajes.opcionesTipoMezcla();
+	
+		do {
+			try {
+			
+			materialController.definirTipoMezcla(lector.nextInt()); 
+			}catch(Exception e){
+				mensajes.MensajeReintento();
+				lector.nextLine();
+			}	
+		
+		}while(materialController.obtenerOpcionMezcla()!=1 && materialController.obtenerOpcionMezcla()!=2);
+		
+		System.out.println("");
+		System.out.println("Tambien te informo que desde ahora, cada vez que determines o selecciones una caracteristica necesaria para el diseño,");
+		System.out.println("Desplegare un resumen de estas, para que puedas ir viendo que valores producen que resultados, tal como te muestro a continuacion");
+		System.out.println("");
+		
+		informe.resumenParametrosMaterial();
+		System.out.println("");
+		mensajes.presionarEnter();
+		mensajes.separador();
+		
+		mensajes.guiaDeterminarClasificacionMaterial1();
+		mensajes.presionarEnter();
+		
+		mensajes.mensajeClasificacion1();
+		mensajes.presionarEnter();
+		mensajes.mensajeClasificacion2();
+		mensajes.presionarEnter();
+		mensajes.mensajeClasificacion3();
+		mensajes.presionarEnter();
+		mensajes.mensajeClasificacion4();
+		mensajes.presionarEnter();
+		mensajes.mensajeClasificacion5();
+		mensajes.presionarEnter();
+		
+		mensajes.guiaDeterminarClasificacionMaterial2();
+		do {
+			try {
+				materialController.definirClasificacionMaterial(lector.nextInt());
+				}catch(Exception e){
+					mensajes.MensajeReintento();
+					lector.nextLine();
+				}	
+		}while(materialController.obtenerOpcionClasificacionMaterial()<1 || materialController.obtenerOpcionClasificacionMaterial()>5);
+	
+		System.out.println("Ya estas muy cerca de establecer la totalidad de atributos de tu material y tal como la vez anterior a continuacion te presento el resumen de tus elecciones:");
+		System.out.println("");
+		informe.resumenParametrosMaterial();
+		mensajes.presionarEnter();
+		mensajes.separador();
+		
+		mensajes.mensajeCategoriaPeso();
+		materialController.definirCaterogiaPeso(materialController.obtenerOpcionClasificacionMaterial());
+		
+		System.out.println("Y como ya sabras, a continuacion te presentare un resumen de los parametros que has establecido");
+		mensajes.presionarEnter();
+		System.out.println("");
+		informe.resumenParametrosMaterial();
+		mensajes.mensajeFinalMaterial();
+		mensajes.presionarEnter();
+		mensajes.separador();
+
+		//Seccion Motor
+		mensajes.mensajeInicialMotor();
+		
+		 do {
+			try {
+				motorController.definirSentidoGiroMotor(lector.nextInt());
+				}catch(Exception e){
+					mensajes.MensajeReintento();
+					lector.nextLine();
+				}	
+		 }while(motorController.obtenerOpcionSentidoGiroMotor()!=1 && motorController.obtenerOpcionSentidoGiroMotor()!=2);
+	
+		 mensajes.guiaDeterminarPosicionMotor();
+		 do {
+			try {
+				motorController.definirPosicionMotor(lector.nextInt());
+				}catch(Exception e){
+					mensajes.MensajeReintento();
+					lector.nextLine();
+				}	
+		 }while(motorController.obtenerOpcionPosicionMotor()!=1 && motorController.obtenerOpcionPosicionMotor()!=2);
+	 	
+	 System.out.println("Grandioso, ya has establecido los parametros operativos de tu motor que necesitas para deiseñar el sentido de fabricacion de tu helice");
+	 System.out.println("Y tambien para establecer el sentido de giro del transportador, esto es fundamental para que le material se mueva en la direccion que pretendes.");
+	 mensajes.separador();
+	 
+	 //Seccion Transportador
+	 mensajes.mensajeInicialTransportador();
+		int item = 0;
+		
+		do {
+			
+			try {
+		
+				item=lector.nextInt();
+				switch(item) {
+				
+				 case 1: //definir diametro de helice
+				 		 transportadorController.definirDiametroHelice(lector.nextFloat(),materialController.obtenerTipoMezcla());
+				 		 
+				 		 
+				 case 2://definir el diametro nominal del tubo del transportador
+					 	 transportadorController.definirDiametroTubo(transportadorController.obtenerDiametroHelice());
+				 
+				 case 3://definir el sentido de giro del transportador
+					 	transportadorController.definirSentidoRotacionTransportador(motorController.obtenerSentidoGiroMotor(), motorController.obtenerPosicionMotor());
+				 
+				 case 4://definir el sentido de fabricacion de la helice
+					 	transportadorController.definirSentidoFabricacionHelice(transportadorController.obtenerSentidoGiroTransportador());
+				
+				 case 5://definir el tipo de helice
+					 	transportadorController.definirTipoHelice(transportadorController.obtenerOpcionHelice());
+					 
+				 case 6://definir el paso de la helice
+					 	transportadorController.definirPasoHelice(transportadorController.obtenerOpcionHelice());
+				 
+				 case 7://definir la velocidad de giro del transportador
+					 	transportadorController.definirVelocidadGiroTransportador(materialController.obtenerCategoriaPeso());
+				
+				 case 8://definir el area de relleno
+					 	transportadorController.definirAreaRelleno(materialController.obtenerOpcionClasificacionMaterial());
+				 
+				 case 9://definir la velocidad de desplazamiento de material
+					 	transportadorController.definirVelocidadDezplazamiento(transportadorController.obtenerVelocidadGiroTransportador(), transportadorController.obtenerPaso());
+				
+				 case 10://definir la capacidad del transportador (caudal masico transportable)
+					 	transportadorController.definirCapacidadTransportador(transportadorController.obtenerInclinacion());
+				 default: mensajes.MensajeReintento();
+					break;
+				}
+			}catch(Exception e){
+				mensajes.MensajeReintento();
+				lector.nextLine();
+			}
+			
+		}while(item<1 || item>10);
+	 
+	 
+	 
+	}
+
+}
