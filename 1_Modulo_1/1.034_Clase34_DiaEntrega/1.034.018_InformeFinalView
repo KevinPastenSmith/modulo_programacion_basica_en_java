@@ -1,0 +1,73 @@
+package view;
+
+import controller.MaterialController;
+
+public class InformeFinalView {
+
+	static MaterialController materialController = new MaterialController();
+	
+	//Metodo para traer los datos
+	public void resumenDatos() {
+		materialController.obtenerTipoMezcla();
+		materialController.obtenerClasificacionMaterial();
+		materialController.obtenerTipoMaterial();
+		materialController.obtenerAbrasividad();
+		materialController.obtenerDensidad();
+		materialController.obtenerFluidez();
+		materialController.obtenerCategoriaPeso();
+
+	}
+	
+	//Metodo para el resumen de datos
+			public void resumenParametrosMaterial() {
+			
+				
+				if (materialController.obtenerTipoMezcla()==null) {
+				}
+				else {
+					System.out.println("1) Tipo de mezcla = "+materialController.obtenerTipoMezcla());
+				}
+				if (materialController.obtenerClasificacionMaterial()==null) {
+				}
+				else {
+					System.out.println("2) Clasificacion de material = "+materialController.obtenerClasificacionMaterial());
+				}
+				
+				if (materialController.obtenerTipoMaterial()==null) {
+					
+				}
+				else {
+					System.out.println("3) Tipo de material = "+materialController.obtenerTipoMaterial());
+				}
+				
+				if (materialController.obtenerAbrasividad()==null) {
+					
+				}
+				else {
+					System.out.println("4) Abrasividad = "+materialController.obtenerAbrasividad());
+				}
+				
+				if (materialController.obtenerDensidad()==0.0) {
+					
+				}
+				else {
+					System.out.println("5) Densidad promedio = "+materialController.obtenerDensidad()+"[ton/m3]");
+				}
+				
+				if (materialController.obtenerFluidez()==null) {
+					
+				}
+				else {
+					System.out.println("6) Fluidez = "+materialController.obtenerFluidez());
+				}
+				
+				if (materialController.obtenerCategoriaPeso()==null) {
+					
+				}
+				else {
+					System.out.println("7) Categoria de peso = "+materialController.obtenerCategoriaPeso());
+				}
+			 }
+	
+	
+}
