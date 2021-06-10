@@ -1,0 +1,319 @@
+package controller;
+
+import model.TransportadorModel;
+import view.Mensajes;
+
+public class TransportadorController {
+
+	static Mensajes mensajes = new Mensajes();
+	static TransportadorModel transportadorModel = new TransportadorModel();
+	static MaterialController materialController = new MaterialController();
+	
+	//Metodos para definir atributos
+	
+		//1) Metodo para definir el diametro de la helice
+		public double definirDiametroHelice(double tamañoParticula, String tipoMezcla) {
+			
+			transportadorModel.setTamañoParticula(tamañoParticula);
+			
+			if (tipoMezcla=="Homogénea") {
+				transportadorModel.setDiametroHelice(12*tamañoParticula);
+			}
+			else if (tipoMezcla=="Heterogénea") {
+				transportadorModel.setDiametroHelice(4*tamañoParticula);
+			}
+			else {
+				mensajes.MensajeReintento();
+			}
+			System.out.println("Muy bien! segun los parametros que has ingresado y correspondiente a tu tipo de mezcla, el diametro aproximado recomendado para la helice de tu transportador es de: ");
+			System.out.println(transportadorModel.getDiametroHelice()+"[mm]");
+			return transportadorModel.getDiametroHelice();
+			
+		}
+	
+		//2) Metodo para definir el diametro nominal del tubo del transportador
+		public double definirDiametroTubo(double diametroHelice) {
+			
+			transportadorModel.setDiametroHelicePulgadas(diametroHelice/25.4);
+			System.out.println("El diametro de la helice en pulgadas es: "+transportadorModel.getDiametroHelicePulgadas()+"[in]");
+			System.out.println("");
+			
+			
+			if (transportadorModel.getDiametroHelicePulgadas()<10) {
+				transportadorModel.setDiametroTubo(1.5);
+			}
+			else if (transportadorModel.getDiametroHelicePulgadas()>=10 && transportadorModel.getDiametroHelicePulgadas()<14) {
+				transportadorModel.setDiametroTubo(2);
+			}
+			else if (transportadorModel.getDiametroHelicePulgadas()>=14 && transportadorModel.getDiametroHelicePulgadas()<=16){
+				transportadorModel.setDiametroTubo(3);
+			}
+			else if (transportadorModel.getDiametroHelicePulgadas()>16){
+				transportadorModel.setDiametroTubo(4);
+			}
+			else {
+				System.out.println("Algo anda mal");
+			}
+			System.out.println("Y el diametro del tubo que necesitas para tu transportador es: "+transportadorModel.getDiametroTubo()+"[in]");
+			
+			return transportadorModel.getDiametroTubo();
+		}
+		
+		//3) Metodo para definir el sentido de giro del transportador
+		public String definirSentidoRotacionTransportador(String sentidoGiroMotor, String posicionMotor) {
+			
+			if (sentidoGiroMotor=="Horario") {
+				if (posicionMotor=="Abajo") {
+					transportadorModel.setSentidoRotacionTransportador("Anti-horario");
+					System.out.println("Segun tu configuracion de motor lo ideal seria que el sentido de giro de tu transpordaor sea en direccion: "+transportadorModel.getSentidoRotacionTransportador());
+				}
+				else if (posicionMotor=="Arriba") {
+					transportadorModel.setSentidoRotacionTransportador("Horario");
+					System.out.println("Segun tu configuracion de motor lo ideal seria que el sentido de giro de tu transpordaor sea en direccion: "+transportadorModel.getSentidoRotacionTransportador());
+				}
+				else {
+					System.out.println("Algo anda mal");
+				}
+			}
+			if (sentidoGiroMotor=="Anti-horario") {
+				
+				if (posicionMotor=="Abajo") {
+					transportadorModel.setSentidoRotacionTransportador("Horario");
+					System.out.println("Segun tu configuracion de motor lo ideal seria que el sentido de giro de tu transpordaor sea en direccion: "+transportadorModel.getSentidoRotacionTransportador());
+					
+				}
+				
+				else if (posicionMotor=="Arriba") {
+					transportadorModel.setSentidoRotacionTransportador("Anti-horario");
+					System.out.println("Segun tu configuracion de motor lo ideal seria que el sentido de giro de tu transpordaor sea en direccion: "+transportadorModel.getSentidoRotacionTransportador());
+				}
+				else {
+					System.out.println("Algo anda mal");
+				}
+			}
+			else {
+				System.out.println("Algo anda mal");
+			}
+			return transportadorModel.getSentidoRotacionTransportador();
+		}
+		
+		
+		//4) Metodo para definir el sentido de fabricacion de la helice
+		public String definirSentidoFabricacionHelice(String sentidoRotacionTransportador) {
+			
+			if (sentidoRotacionTransportador=="Horario") {
+				transportadorModel.setSentidoHelice("Mano Izquierda");	
+				System.out.println("Segun tus configuraciones de motor y el transportador, el sentido de fabricacion de tu helice debe ser en direccion: "+transportadorModel.getSentidoHelice());
+			}
+			else if (sentidoRotacionTransportador=="Anti-horario") {
+				transportadorModel.setSentidoHelice("Mano Derecha");
+				System.out.println("Segun tus configuraciones de motor y el transportador, el sentido de fabricacion de tu helice debe ser en direccion: "+transportadorModel.getSentidoHelice());
+			}
+			else {
+				System.out.println("Algo anda mal");
+			}
+			return transportadorModel.getSentidoHelice();
+		
+		}
+		
+		
+		//5) Metodo para definir el tipo de helice
+		
+		public String definirTipoHelice(int opcionHelice) {
+			 
+			switch(opcionHelice) {
+			
+			case 1: transportadorModel.setTipoHelice("Helicoidal Sencillo, Paso Estándar");
+					System.out.println("Segun los requerimientos de transporte que has seleccionado, tu helice debe ser del tipo: "+transportadorModel.getTipoHelice());
+			case 2: transportadorModel.setTipoHelice("Helicoidal Sencillo, Paso Corto");
+					System.out.println("Segun los requerimientos de transporte que has seleccionado, tu helice debe ser del tipo: "+transportadorModel.getTipoHelice());
+			case 3: transportadorModel.setTipoHelice("Helicoidal Sencillo, Paso Medio");
+					System.out.println("Segun los requerimientos de transporte que has seleccionado, tu helice debe ser del tipo: "+transportadorModel.getTipoHelice());
+			case 4: transportadorModel.setTipoHelice("Helicoidal con Corte, Paso Estándar");
+					System.out.println("Segun los requerimientos de transporte que has seleccionado, tu helice debe ser del tipo: "+transportadorModel.getTipoHelice());
+			case 5: transportadorModel.setTipoHelice("Helicoidal de Listón, Paso Estandar");
+					System.out.println("Segun los requerimientos de transporte que has seleccionado, tu helice debe ser del tipo: "+transportadorModel.getTipoHelice());
+			case 6: transportadorModel.setTipoHelice("Helicoidal con Paletas, Paso Estandar");
+					System.out.println("Segun los requerimientos de transporte que has seleccionado, tu helice debe ser del tipo: "+transportadorModel.getTipoHelice());
+			default: mensajes.MensajeReintento();
+			}
+
+			return transportadorModel.getTipoHelice();
+		}
+		
+		//6) Metodo para definir el paso de la helice
+		
+		public double definirPasoHelice(int opcionHelice) {
+			
+			switch(opcionHelice) {
+			
+			case 1: transportadorModel.setPaso(transportadorModel.getDiametroHelice());
+					System.out.println("En vista de tu eleccion de helice, el paso de tu helicoidal es de :"+transportadorModel.getPaso());
+			case 2: transportadorModel.setPaso(2/3*transportadorModel.getDiametroHelice());
+					System.out.println("En vista de tu eleccion de helice, el paso de tu helicoidal es de :"+transportadorModel.getPaso());
+			case 3: transportadorModel.setPaso(transportadorModel.getDiametroHelice()/2);
+					System.out.println("En vista de tu eleccion de helice, el paso de tu helicoidal es de :"+transportadorModel.getPaso());
+			case 4: transportadorModel.setPaso(transportadorModel.getDiametroHelice());
+					System.out.println("En vista de tu eleccion de helice, el paso de tu helicoidal es de :"+transportadorModel.getPaso());
+			case 5: transportadorModel.setPaso(transportadorModel.getDiametroHelice());
+					System.out.println("En vista de tu eleccion de helice, el paso de tu helicoidal es de :"+transportadorModel.getPaso());
+			case 6: transportadorModel.setPaso(transportadorModel.getDiametroHelice());
+					System.out.println("En vista de tu eleccion de helice, el paso de tu helicoidal es de :"+transportadorModel.getPaso());
+			default: mensajes.MensajeReintento();
+			}
+			
+			return transportadorModel.getPaso();
+			
+		}
+			
+		//7) Metodo para definir la velocidad de giro del transportador
+		public int definirVelocidadGiroTransportador(String CategoriaPeso) {
+				
+				if (CategoriaPeso=="Pesado") {
+					transportadorModel.setVelocidadGiro(50);
+				}
+				else if (CategoriaPeso=="Ligero") {
+					transportadorModel.setVelocidadGiro(150);
+				}
+				else {
+					System.out.println("Algo anda mal");
+				}
+				
+				System.out.println("La velocidad de giro de tu transportador es de: "+transportadorModel.getVelocidadGiro()+"[r.p.m.]");
+				return transportadorModel.getVelocidadGiro();
+			}
+		
+		//8) Metodo para definir el area de relleno
+				public double definirAreaRelleno(int opcionClasificacion) {
+					
+					transportadorModel.setDiametroTornilloMetrico(transportadorModel.getDiametroHelice()/100);
+					
+					if (opcionClasificacion==1) {
+						transportadorModel.setCoeficienteRelleno(0.4);
+					}
+					else if (opcionClasificacion==2) {
+						transportadorModel.setCoeficienteRelleno(0.32);
+					}
+					else if (opcionClasificacion==3) {
+						transportadorModel.setCoeficienteRelleno(0.25);
+						
+					}
+					else if (opcionClasificacion==4) {
+						transportadorModel.setCoeficienteRelleno(0.125);
+					
+					}
+					else {
+						System.out.println("Algo anda mal");
+					}
+					
+					transportadorModel.setAreaRelleno(transportadorModel.getDiametroTornilloMetrico()*transportadorModel.getDiametroTornilloMetrico()*transportadorModel.getCoeficienteRelleno()*3.14/4);
+					System.out.println("El area de relleno de tu canalo es de :"+transportadorModel.getAreaRelleno()+"[m^2]");
+					return transportadorModel.getAreaRelleno();
+				}
+				
+		//9) Metodo para definir la velocidad de desplazamiento de material
+		public double definirVelocidadDezplazamiento(int velocidadGiro, double paso) {
+			
+			transportadorModel.setVelocidadDesplazamiento(velocidadGiro*paso/60);
+			System.out.println("La velocidad de transporte de material de tu transportador es: "+transportadorModel.getVelocidadDesplazamiento()+"[m/s]");
+			return transportadorModel.getVelocidadDesplazamiento();
+		}
+			
+		
+		//10) Metodo para definir la capacidad del transportador (caudal masico transportable)
+		public double definirCapacidadTransportador(int inclinacion) {
+			
+			
+			if (inclinacion==0) {
+				transportadorModel.setCoeficienteRelleno(1);
+			}
+			else if (inclinacion==5) {
+				transportadorModel.setCoeficienteRelleno(0.9);
+			}
+			else if (inclinacion==10) {
+				transportadorModel.setCoeficienteRelleno(0.8);
+			}
+			else if (inclinacion==15) {
+				transportadorModel.setCoeficienteRelleno(0.7);
+			}
+			else if (inclinacion==20) {
+				transportadorModel.setCoeficienteRelleno(0.6);
+			}
+			else if (inclinacion>=25) {
+				transportadorModel.setCoeficienteRelleno(0.5);
+			}
+			else {
+				System.out.println("Algo anda mal");
+			}
+			
+			transportadorModel.setCapacidadTransporte(3600*transportadorModel.getCoeficienteRelleno()*materialController.obtenerDensidad()*transportadorModel.getVelocidadDesplazamiento()*transportadorModel.getAreaRelleno());
+			System.out.println("La capacidad de transporte de material de tu transportador es de: "+transportadorModel.getCapacidadTransporte()+"[t/h]");
+			return transportadorModel.getCapacidadTransporte();
+		}
+		
+		//Metodos para obtener valores no retornados
+		public double obtenerTamañoParticula() {
+			return transportadorModel.getTamañoParticula();
+		}
+		public double obtenerDiametroHelicePulgadas() {
+			return transportadorModel.getDiametroHelicePulgadas();
+		}
+		
+		public int obtenerOpcionHelice() {
+			return transportadorModel.getOpcionHelice();
+		}
+		public double obtenerDiametroTornilloMetrico() {
+			return transportadorModel.getDiametroTornilloMetrico();
+		}
+		public double obtenerCoeficienteRelleno() {
+			return transportadorModel.getCoeficienteRelleno();
+		}
+		public int obtenerInclinacion() {
+			return transportadorModel.getInclinacion();
+		}
+
+		
+		//Metodos para obtener valores retornados
+		
+		//1) Diametro del Helicoidal
+		public double obtenerDiametroHelice() {
+			return transportadorModel.getDiametroHelice();
+		}
+		// 2) Diametro del tubo del transportador
+		public double obtenerDiametroTubo() {
+			return transportadorModel.getDiametroTubo();
+		}
+		// 3) Sentido de Giro 
+		public String obtenerSentidoGiroTransportador() {
+			return transportadorModel.getSentidoRotacionTransportador();
+		}
+		// 4) sentido de la Helice
+		public String obtenerSentidoHelice() {
+			return transportadorModel.getSentidoHelice();
+		}
+		// 5) Atributos para El tipo de Helice
+		public String obtenerTipoHelice() {
+			return transportadorModel.getTipoHelice();
+		}
+		// 6) Paso de la Helice
+		public double obtenerPaso() {
+			return transportadorModel.getPaso();
+		}
+		// 7) Velocidad de Giro del Transportador
+		public int obtenerVelocidadGiroTransportador() {
+			return transportadorModel.getVelocidadGiro();
+		}
+		// 8) Area de Relleno
+		public double obtenerAreaRelleno() {
+			return transportadorModel.getAreaRelleno();
+		}
+		// 9)  Velocidad de Transporte
+		public double obtenerVelocidadDezplazamiento() {
+			return transportadorModel.getVelocidadDesplazamiento();
+		}
+		// 10) Capacidad del transportador
+		public double obtenerCapacidadTransportador() {
+			return transportadorModel.getCapacidadTransporte();
+		}
+		
+}		
