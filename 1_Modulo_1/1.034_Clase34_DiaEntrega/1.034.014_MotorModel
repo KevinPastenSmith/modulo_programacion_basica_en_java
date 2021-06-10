@@ -1,0 +1,106 @@
+package model;
+
+public class MaterialModel {
+	
+	//Atributos
+	
+		private String tipoMezcla;//1)Homogenea, 2)Heterogenea
+		private int opcionMezcla;//1) o 2)
+		private String tipoMaterial; //caracteristica volumentrica y de comportamiento
+		private String abrasividad;//abresividad del material
+		private double densidad;//densidad del material
+		private String fluidez;//fluidez del material
+		private String clasificacionMaterial;//Clase del material (clase 1, clase 2, clase 3, clase 4, clase 5)
+		private int opcionClasificacionMaterial;//1),2),3),4),5)
+		private String categoriaPeso;//1)Ligero, 2)Pesado
+		
+		public MaterialModel() {
+		super();
+		}
+		
+		public MaterialModel(String tipoMezcla, int opcionMezcla, String tipoMaterial, String abrasividad, double densidad, String fluidez, String clasificacionMaterial, int opcionClasificacionMaterial, String categoriaPeso) {
+			super();
+			this.tipoMezcla = tipoMezcla;
+			this.opcionMezcla = opcionMezcla;
+			this.tipoMaterial = tipoMaterial;
+			this.abrasividad = abrasividad;
+			this.densidad = densidad;
+			this.fluidez = fluidez;
+			this.clasificacionMaterial = clasificacionMaterial;
+			this.opcionClasificacionMaterial = opcionClasificacionMaterial;
+			this.categoriaPeso = categoriaPeso;
+		}
+
+		public String getTipoMezcla() {
+			return tipoMezcla;
+		}
+
+		public void setTipoMezcla(String tipoMezcla) {
+			this.tipoMezcla = tipoMezcla;
+		}
+
+		public int getOpcionMezcla() {
+			return opcionMezcla;
+		}
+
+		public void setOpcionMezcla(int opcionMezcla) {
+			this.opcionMezcla = opcionMezcla;
+		}
+
+		public String getTipoMaterial() {
+			return tipoMaterial;
+		}
+
+		public void setTipoMaterial(String tipoMaterial) {
+			this.tipoMaterial = tipoMaterial;
+		}
+
+		public String getAbrasividad() {
+			return abrasividad;
+		}
+
+		public void setAbrasividad(String abrasividad) {
+			this.abrasividad = abrasividad;
+		}
+
+		public double getDensidad() {
+			return densidad;
+		}
+
+		public void setDensidad(double densidad) {
+			this.densidad = densidad;
+		}
+
+		public String getFluidez() {
+			return fluidez;
+		}
+
+		public void setFluidez(String fluidez) {
+			this.fluidez = fluidez;
+		}
+
+		public String getClasificacionMaterial() {
+			return clasificacionMaterial;
+		}
+
+		public void setClasificacionMaterial(String clasificacionMaterial) {
+			this.clasificacionMaterial = clasificacionMaterial;
+		}
+
+		public int getOpcionClasificacionMaterial() {
+			return opcionClasificacionMaterial;
+		}
+
+		public void setOpcionClasificacionMaterial(int opcionMaterial) {
+			this.opcionClasificacionMaterial = opcionMaterial;
+		}
+
+		public String getCategoriaPeso() {
+			return categoriaPeso;
+		}
+
+		public void setCategoriaPeso(String categoriaPeso) {
+			this.categoriaPeso = categoriaPeso;
+		}
+		
+}
