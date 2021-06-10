@@ -1,0 +1,56 @@
+package view;
+
+import java.util.Scanner;
+
+import controller.MaterialController;
+import controller.MotorController;
+
+public class MenuSeleccion {
+
+	static Scanner lector = new Scanner (System.in);
+	static Mensajes mensajes = new Mensajes();
+	static MaterialController materialController = new MaterialController(); 	
+	static MotorController motorController = new MotorController();
+	static InformeFinalView informe = new InformeFinalView();
+	static GuiaCompleta guiaCompleta = new GuiaCompleta();
+	static MaterialView materialView = new MaterialView();
+	static MotorView motorView = new MotorView();
+	static TransportadorView transportadorView = new TransportadorView();
+	
+	public static void main(String[] args) {
+		
+		mensajes.mensajeInicialMenu();
+		mensajes.presionarEnter();
+		mensajes.separador(); 
+		mensajes.mensajeElegirItem();
+		mensajes.separador();
+		int item = 0;
+		
+		do {
+			
+			try {
+				item = lector.nextInt();
+				
+				switch (item) {
+				
+				case 1: materialView.main();
+						break;
+				case 2: motorView.main();
+						break;
+				case 3: transportadorView.main();
+						break;
+				case 4: guiaCompleta.main();
+						break;
+				
+				default: mensajes.MensajeReintento();
+						 break;
+				}
+			
+			}catch(Exception e){
+				mensajes.MensajeReintento();
+				lector.nextLine();
+			}	
+		}while(item<1 || item>4);
+	}
+}
+
