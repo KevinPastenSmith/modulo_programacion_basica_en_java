@@ -1,0 +1,116 @@
+1.8.1_Ejercicio_Clase_anterior
+
+Hacer una aplicación que pida 3 números al usuario y luego los muestre de menor a mayor y de mayor a menor.
+
+MANERA NUMERO 1
+
+package ejercicio;
+
+import java.util.Scanner;
+
+class ejercicio {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner lector = new Scanner(System.in);
+		System.out.println("ingrese 3 numeros para ordenarlos");
+		System.out.println("ingrese el primero numero");
+		int a = lector.nextInt();
+		System.out.println("ingrese el segundo numero");
+		int b = lector.nextInt();
+		System.out.println("ingrese el tercer numero");
+		int c = lector.nextInt();
+		
+		System.out.println("el orden descendente es: ");
+		if (a>b && b>c) {
+			System.out.println(a+","+b+","+c);
+		}else if(a>c && c>b){
+			System.out.println(a+","+c+","+b);
+		}else if(b>a && a>c){
+			System.out.println(b+","+a+","+c);
+		}else if(b>c && c>a){
+			System.out.println(b+","+c+","+a);
+		}else if(c>a && a>b){
+			System.out.println(c+","+a+","+b);
+		}else {
+			System.out.println(c+","+b+","+a);
+				
+		}
+		
+		System.out.println("el orden ascendente es: ");
+		if (a<b && b<c) {
+			System.out.println(a+","+b+","+c);
+		}else if(a<c && c<b){
+			System.out.println(a+","+c+","+b);
+		}else if(b<a && a<c){
+			System.out.println(b+","+a+","+c);
+		}else if(b<c && c<a){
+			System.out.println(b+","+c+","+a);
+		}else if(c<a && a<b){
+			System.out.println(c+","+a+","+b);
+		}else {
+			System.out.println(c+","+b+","+a);
+		
+		}
+		
+		
+		lector.close();	
+	}
+	
+}
+
+
+MANERA NUMERO 2
+
+
+
+package ejercicio;
+
+import java.util.Scanner;
+
+public class ejercicioversion2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner lector = new Scanner(System.in);
+		System.out.println("ingrese 3 numeros para ordenarlos");
+		System.out.println("ingrese el primer numero");
+		int a = lector.nextInt();
+		System.out.println("ingrese el segundo numero");
+		int b = lector.nextInt();
+		System.out.println("ingrese el tercer numero");
+		int c = lector.nextInt();
+		
+		int mayor = 0, menor = 0, medio;
+				
+		if (a>b && a>c){
+			mayor = a;
+		}else if(b>a && b>c){ 
+			mayor = b;
+		}else if(c>a && c>b){
+			mayor = c;
+			
+			}
+		
+		if (a<b && a<c){
+			menor = a;
+		}else if(b<a && b<c){ 
+			menor = b;
+		}else if(c<a && c<b){
+			menor = c;
+			
+			
+			}
+				
+		medio = (a+b+c) - (mayor+menor);
+		System.out.println("el orden ascendente de los numeros es: "+menor+","+medio+","+mayor);
+		System.out.println("el orden descendente de los numeros es: "+mayor+","+medio+","+menor);
+		
+		lector.close();			
+		}
+			
+
+}
+
+
