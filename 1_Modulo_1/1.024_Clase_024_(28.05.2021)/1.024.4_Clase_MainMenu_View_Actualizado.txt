@@ -1,0 +1,92 @@
+package View;
+
+import Controller.MaterialController;
+
+import Model.MaterialModel;
+
+import java.util.Scanner;
+
+
+public class MainMenuView {
+	static Scanner lector = new Scanner (System.in);
+	
+	static String entrada = "";
+	
+	public static void main(String[] args) {
+		
+		MaterialController materialController = new MaterialController(); //Objeto material de la clase MaterialController del paquete Controller
+		MaterialModel materialModel = new MaterialModel();//Objeto material de la clase MaterialModel del paquete Model
+		InformeFinalView informe = new InformeFinalView();//objeto para el informe o resumen de datos seleccionados
+		
+		mensajeInicialMenu(); //Mensaje inicial e introduccion para el usuario
+		separador(); //Separador de fases
+		guiaDeterminarTipoMezcla(); //Conjunto de mensajes que guian a determinar el tipo de mezcla
+		
+		materialController.DefinirTipoMezcla(); //Metodo para definir el tipo de mezcla
+		
+		System.out.println("");
+		System.out.println("Tambien te informo que desde ahora, cada vez que determines o selecciones una caracteristica necesaria para el diseño,");
+		System.out.println("Desplegare un resumen de estas, para que puedas ir viendo que valores producen que resultados, tal como te muestro a continuacion");
+		System.out.println(materialModel.getTipoMezcla());
+		informe.resumenDatos();
+		
+		guiaDeterminarClasificacionMaterial();
+	}
+
+	
+	
+	//Metodos
+	
+	//Metodo para el mensaje inicial
+	public static void mensajeInicialMenu() {
+		System.out.println("Hola Esbirr@!!");
+		System.out.println("Soy un programa creado para ayudarte, sugerirte y guiarte durante la magnanima odisea del diseño de un transportador helicoidal.");
+		System.out.print("Si estas listo para esta fantastica aventura milenaria ");
+		presionarEnter();
+	}
+	
+	
+	//Metodo para la seleccion del tipo de mezcla
+	public static void guiaDeterminarTipoMezcla(){
+		System.out.println("Excelente!!, al parecer eres un ser vivo muy gallardo.");
+		System.out.println("Bueno veras, antes de poder determinar los atributos de tu transportador helicoidal, debes establecer algunas caracteristicas del material que necesitas transportar.");
+		System.out.println("Esto es fundamental!!, ya que en base la informacion que ingreses es como se diseñara tu transportador.");
+		System.out.println("");
+		System.out.println("El primer paso para establecer las caracteristicas de tu material es determinar el tipo de mezcla que forma dicho material.");
+		System.out.println("A que me refiero con esto?...Deberas identificar los elementos que conforman tu material para poder establecer la naturaleza de la mezcla.");
+		System.out.println("Si tu material se compone de elementos de la misma naturaleza, entonces diremos que tu mezcla es Homogénenea.");
+		System.out.println("Por otro lado, si notas que tu material contiene elementos diversos o con naturaleza distinta, entonces diremos que tu mezcla es Heterogénea.");
+		System.out.println("A continuacion elige una de las opciones que se te presentan.");
+		System.out.println("");
+		System.out.println("1) Mezcla Homogénea");
+		System.out.println("2) Mezcla Heterogénea");
+		System.out.println("");
+		System.out.println("Porfavor ingresa el numero de tu opcion y presiona enter");
+		
+		}
+	
+	//Metodo para determinar la clasificacion del material
+	public static void guiaDeterminarClasificacionMaterial() {
+		System.out.println("ya que has seleccionado tu tipo de mezcla, es hora");
+	}
+	
+	//Metodo para separar secciones de forma ordenada
+	public static void separador() {
+		System.out.println("");
+		System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("");
+	}
+	//Metodo para mensaje estandar de que se debe elegir una opcion valida
+	public static void MensajeReintento() {
+		System.out.println("Debes elegir una de las opciones disponibles");
+	}
+	//metodo para presionar enter y avanzar
+	public static void presionarEnter() {
+		System.out.println("presiona enter para continuar.");
+		do{
+		    entrada  = lector.nextLine();
+		 }
+		 while(!entrada.equals(""));
+	}
+	
+}
