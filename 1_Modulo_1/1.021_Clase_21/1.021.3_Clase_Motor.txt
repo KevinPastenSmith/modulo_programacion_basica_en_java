@@ -1,0 +1,53 @@
+package Controller;
+
+import java.util.Scanner;
+
+public class Motor {
+
+	Scanner lector= new Scanner(System.in);
+	
+	//Atributos
+	private String sentidoGiroMotor;//1)horario, 2)antihorario
+	private int opcionSentidoGiroMotor;//1),2)
+	private String posicionMotor;//1)arriba, 2)abajo
+	private int opcionPosicionMotor;//1), 2)
+	
+	//Metodo Constructor
+	public Motor(int opcionSentidoGiroMotor, String sentidoGiroMotor, int opcionPosicionMotor, String posicionMotor) {
+		this.sentidoGiroMotor=sentidoGiroMotor;
+		this.opcionSentidoGiroMotor=opcionSentidoGiroMotor;
+		this.opcionPosicionMotor=opcionPosicionMotor;
+		this.posicionMotor=posicionMotor;
+	}
+	
+	//Metodo para definir el sentido de giro del motor
+	public void DefinirSentidoGiroMotor(int opcionSentidoGiroMotor, String sentidoGiroMotor){
+		
+		opcionSentidoGiroMotor=lector.nextInt();
+		if (opcionSentidoGiroMotor==1) {
+			sentidoGiroMotor="Horario";
+		}
+		else if (opcionSentidoGiroMotor==2) {
+			sentidoGiroMotor="Antihorario";
+		}
+		else {
+			Menu.MensajeReintento();
+		}
+			
+	}
+	
+	public void DefinirPosicionMotor(int opcionPosicionMotor, String posicionMotor) {
+		
+		opcionPosicionMotor=lector.nextInt();
+		if (opcionPosicionMotor==1) {
+			posicionMotor="Abajo";
+		}
+		else if (opcionPosicionMotor==2) {
+			posicionMotor="Arriba";
+		}
+		else {
+			Menu.MensajeReintento();
+		}
+	}
+	
+}

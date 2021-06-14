@@ -1,0 +1,67 @@
+package Controller;
+
+import java.util.Scanner;
+
+public class Menu {
+	
+	Scanner lector = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+		mensajeInicialMenu(); //Mensaje inicial para el usuario e inicio de la guia
+		
+		Material material = new Material(); //Objeto Material
+		
+		material.DefinirTipoMezcla(); //Procedimiento para definir el tipo de mezcla
+		
+		mensajeSeleccionarClasificacion();
+		
+		material.MensajeClasificacion1();
+		material.MensajeClasificacion2();
+		material.MensajeClasificacion3();
+		material.MensajeClasificacion4();
+		material.MensajeClasificacion5();
+		
+		material.DefinirClasificacion();
+		
+		System.out.println("");
+		System.out.println("Para finalizar la determinacion de caracteristicas fisicas del material, se debe establecer la categoria de peso de este.");
+		System.out.println("Esta categoria de peso esta directamente relacionada con la categoria del material.");
+		System.out.println("En vista de que has determinado la clasificacion de material con anterioridad, su peso es de: ");
+		
+		material.DefinirCategoriaPeso();
+		material.MensajeResumenMaterial();
+		
+		System.out.println("");
+		System.out.println("Tras determinar las caracteristicas del material, es necesario establecer algunas caracteristicas del motor a utilizar.");
+		
+	
+	}
+
+	public static void mensajeInicialMenu () {
+		System.out.println("Hola usuario, esta es una aplicacion para determinar las caracteristicas basicas para el diseño de un transportador helicoidal.");
+		System.out.println("Para poder seleccionar y calcular estas caracteristicas es necesario establecer cierta informacion sobre el material a transportar.");
+		System.out.println("");
+		System.out.println("Debes iniciar estableciendo si el tipo de mezcla a procesar es:");
+		System.out.println("1) Homogénea");
+		System.out.println("2) Heterogénea");
+		System.out.println("");
+		System.out.println("Ingresa el numero de tu opcion y presiona enter");
+	}
+	
+	public static void mensajeSeleccionarClasificacion() {
+		System.out.println("A continuacion es necesario que clasifiques tu material segun sus caracteristicas fisicas.");
+		System.out.println("Para simplificar la seleccion, se presentan las 5 clasificaciones de material basadas en el tipo de material a transportar.");
+		System.out.println("lea con atencion las caracteristicas de cada clasificacion y a continuacion ingrese el numero de esta y presione enter.");
+	}
+	//Metodo para mensaje estandar de que se debe elegir una opcion valida
+	public static void MensajeReintento() {
+		System.out.println("Debe elegir una de las opciones disponibles");
+	}
+	//Metodo para separar secciones de forma ordenada
+	public static void separador() {
+		System.out.println("");
+		System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("");
+	}
+}

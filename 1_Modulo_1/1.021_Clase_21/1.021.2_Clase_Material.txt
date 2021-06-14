@@ -1,0 +1,174 @@
+package Controller;
+
+import java.util.Scanner;
+
+public class Material {
+
+	Scanner lector = new Scanner(System.in);
+	
+	//Atributos
+	
+	String tipoMezcla;//1)Homogenea, 2)Heterogenea
+	int opcionMezcla;//1) o 2)
+	String tipoMaterial; //caracteristica volumentrica y de comportamiento
+	String abrasividad;//abresividad del material
+	double densidad;//densidad del material
+	String fluidez;//fluidez del material
+	String clasificacionMaterial;//Clase del material (clase 1, clase 2, clase 3, clase 4, clase 5)
+	int opcionMaterial;//1),2),3),4),5)
+	String categoriaPeso;//1)Ligero, 2)Pesado
+	
+	
+	//Metodo para definir el tipo de mezcla
+	public void DefinirTipoMezcla () {
+		
+		do{
+			opcionMezcla=lector.nextInt();
+			if (opcionMezcla==1) {
+				tipoMezcla="Homogénea";
+				System.out.println("Usted ha selecciona la opcion 1 mezcla Homogénea");
+				Menu.separador();
+				break;
+			}
+			else if (opcionMezcla==2) {
+				tipoMezcla="Heterogénea";
+				System.out.println("Usted ha selecciona la opcion 2 mezcla Heterogénea");
+				Menu.separador();
+				break;
+			}
+			else {
+				Menu.MensajeReintento();
+			}
+		}while(opcionMezcla!=1 || opcionMezcla!=2);
+		
+	}
+	
+	public void MensajeClasificacion1() {
+		System.out.println("");
+		System.out.println("1) Clasificacion de Material: Clase 1");
+		System.out.println("Tipo de Material: Polvoriento");
+		System.out.println("Abrasividad: No abrasivo");
+		System.out.println("Densidad: 0,4 - 0,7 [t/m3]");
+		System.out.println("Fluidez: Fluye facilmente");
+		
+	}
+	
+	public void MensajeClasificacion2() {
+		System.out.println("");
+		System.out.println("2) Clasificacion de material: Clase 2");
+		System.out.println("Tipo de material: granos o pequeños tamaños");
+		System.out.println("Abrasividad: No abrasivos");
+		System.out.println("Densidad: 0,6 - 0,8 [t/m3]");
+		System.out.println("Fluidez: Fluye fácilmente");
+	}
+	
+	public void MensajeClasificacion3() {
+		System.out.println("");
+		System.out.println("3) Clasificacion de material: Clase 3");
+		System.out.println("Tipo de material: pequeño tamaño, mezclados con polvos");
+		System.out.println("Abrasividad: Semi abrasivos");
+		System.out.println("Densidad: 0,6 - 1,2 [t/m3]");
+		System.out.println("Fluidez: Flujo medio");
+	}
+
+	public void MensajeClasificacion4() {
+		System.out.println("");
+		System.out.println("4) Clasificacion de material: Clase 4");
+		System.out.println("Tipo de material: granulares o pequeños tamaños con polvos");
+		System.out.println("Abrasividad: Semi-abrasivos o abrasivos");
+		System.out.println("Densidad: Densidad 0,8 - 1,6 [t/m3]");
+		System.out.println("Fluidez: Flujo lento");
+	}
+	
+	public void MensajeClasificacion5() {
+		System.out.println("");
+		System.out.println("5) Clasificacion de material: Clase 5");
+		System.out.println("Tipo de material: granos o pequeños tamaños");
+		System.out.println("Abrasividad: No abrasivos");
+		System.out.println("Densidad = 1 - 2 [t/m3]");
+		System.out.println("Fluidez = No recomendado para transportador helicoidal");
+	}
+	
+	public void MensajeEleccionClasificacion() {
+		System.out.println("");
+		System.out.println("Su eleccion fue la opcion "+opcionMaterial+", por lo tanto sus caracteristicas son:");
+	}
+	
+	public void DefinirClasificacion() {
+		
+		opcionMaterial=lector.nextInt();
+		if (opcionMaterial==1) {
+			clasificacionMaterial= "Clase 1";
+			tipoMaterial="Polvoriento";
+			abrasividad="No abrasivo";
+			densidad=0.55;
+			fluidez="Fluye facilmente";
+			MensajeEleccionClasificacion();
+			MensajeClasificacion1();
+		}
+		else if (opcionMaterial==2) {
+			clasificacionMaterial= "Clase 2";
+			tipoMaterial="Granos o pequeños tamaños";
+			abrasividad="No abrasivo";
+			densidad=0.7;
+			fluidez="Fluye facilmente";
+			MensajeEleccionClasificacion();
+			MensajeClasificacion2();
+		}
+		else if (opcionMaterial==3) {
+			clasificacionMaterial= "Clase 3";
+			tipoMaterial="Pequeño tamaño, mezclados con polvos";
+			abrasividad="Semi abrasivos";
+			densidad=0.9;
+			fluidez="Flujo medio ";
+			MensajeEleccionClasificacion();
+			MensajeClasificacion3();
+		}
+		else if (opcionMaterial==4) {
+			clasificacionMaterial= "Clase 4";
+			tipoMaterial="Granulares o pequeños tamaños con polvo";
+			abrasividad="Abrasivos";
+			densidad=1.2;
+			fluidez="Flujo lento ";
+			MensajeEleccionClasificacion();
+			MensajeClasificacion4();
+		}
+		else if (opcionMaterial==5) {
+			clasificacionMaterial= "Clase 5";
+			tipoMaterial="granos o pequeños tamaños";
+			abrasividad="Abrasivos";
+			densidad=1.5;
+			fluidez="No recomendado para transportador helicoidal";
+			MensajeEleccionClasificacion();
+			MensajeClasificacion5();
+		}
+		else {
+			Menu.MensajeReintento();
+		}
+	
+	}
+
+	public void DefinirCategoriaPeso() {
+		if (opcionMaterial==1 ||opcionMaterial==2) {
+			categoriaPeso="Ligero";
+			System.out.println("Categoria Ligero");
+		}
+		else if (opcionMaterial==3 ||opcionMaterial==4) {
+			categoriaPeso="Pesado";
+			System.out.println("Categoria Pesado");
+		}
+	}
+	
+	public void MensajeResumenMaterial() {
+		System.out.println("");
+		System.out.println("Para resumir, las caracteristicas de su material son: ");
+		System.out.println("");
+		System.out.println("Tipo de Mezlca = "+tipoMezcla);
+		System.out.println("Clasificacion de material = "+clasificacionMaterial);
+		System.out.println("Tipo de Material = "+tipoMaterial);
+		System.out.println("Abrasividad = "+abrasividad);
+		System.out.println("Densidad = "+densidad+"[t/m3]");
+		System.out.println("Fluidez = "+fluidez);
+		System.out.println("Categoria de peso = "+categoriaPeso);
+	}
+}
