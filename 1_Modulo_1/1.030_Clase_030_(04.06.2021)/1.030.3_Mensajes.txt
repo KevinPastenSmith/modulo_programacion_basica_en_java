@@ -1,0 +1,145 @@
+package View;
+
+import java.util.Scanner;
+
+import Controller.MaterialController;
+
+
+public class Mensajes {
+	
+	
+	static MainMenuView menu = new MainMenuView();
+	static MaterialController materialController = new MaterialController();
+	static Scanner lector = new Scanner(System.in);
+	
+	//Metodos de mensajes y guias
+	
+		//Metodos Para la clase Material
+	
+		//Metodo para el mensaje inicial
+			public void mensajeInicialMenu() {
+				System.out.println("Hola Esbirr@!!");
+				System.out.println("Soy un programa creado para ayudarte, sugerirte y guiarte durante la magnanima odisea del diseño de un transportador helicoidal.");
+				System.out.print("Si estas listo para esta fantastica aventura milenaria ");
+			}
+	
+			//Metodo guia para la seleccion del tipo de mezcla
+			public void guiaDeterminarTipoMezcla(){
+				System.out.println("Excelente!!, al parecer eres un ser vivo muy gallardo.");
+				System.out.println("Bueno veras, antes de poder determinar los atributos de tu transportador helicoidal, debes establecer algunas caracteristicas del material que necesitas transportar.");
+				System.out.println("Esto es fundamental!!, ya que en base la informacion que ingreses es como se diseñara tu transportador.");
+				System.out.println("");
+				System.out.println("El primer paso para establecer las caracteristicas de tu material es determinar el tipo de mezcla que forma dicho material.");
+				System.out.println("A que me refiero con esto?...Deberas identificar los elementos que conforman tu material para poder establecer la naturaleza de la mezcla.");
+				System.out.println("Si tu material se compone de elementos de la misma naturaleza, entonces diremos que tu mezcla es Homogénenea.");
+				System.out.println("Por otro lado, si notas que tu material contiene elementos diversos o con naturaleza distinta, entonces diremos que tu mezcla es Heterogénea.");
+				}
+			
+			//Metodo para mostrar los tipos de mezcla
+			public void opcionesTipoMezcla() {
+				System.out.println("A continuacion elige una de las opciones que se te presentan.");
+				System.out.println("");
+				System.out.println("1) Mezcla Homogénea");
+				System.out.println("2) Mezcla Heterogénea");
+				System.out.println("");
+				System.out.println("Porfavor ingresa el numero de tu opcion y presiona enter");
+			}
+		
+			//Metodos guia para determinar la clasificacion del material parte 1
+			
+			public void guiaDeterminarClasificacionMaterial1() {
+				System.out.println("Muy bien!!, ya has establecido tu tipo de mezcla, ahora es tiempo de definir la clasificacion de tu material.");
+				System.out.println("Esto es importante, ya que al definir esta clasificacion estableces tu tipo de material, abrasividad, densidad y fluidez de este. ");
+				System.out.println("A demas, a partir de este dato se determinara la categoria de peso de tu material.");
+				System.out.println("A continuacion, te presento una por una las configuraciones de clasificaciones de material por las que puedes optar.");
+				System.out.println("Si estas listo para continuar presiona enter, acto seguido presiona enter luego de cada clasificacion que se te muestre.");
+			}
+			
+			//Metodo guia para determinar la clasificacion del material parte 2
+			public void guiaDeterminarClasificacionMaterial2() {
+				System.out.println("ADVERTENCIA!! Como habras notado, la fluidez en la clasificacion 5 no es recomendada para un transportador helicoidal.");
+				System.out.println("Por lo tanto, si este es tu caso, te recomiendo desistas de diseñar tus operaciones pensando en este tipo de maquinaria, ya que seria contraproducente.");
+				System.out.print("Si este no es tu caso, porfavor ingresa el numero de la opcion que mejor represente las caracteristicas fisicas de tu material y presiona enter");
+				System.out.println("");
+			}
+			
+			
+			//Metodos para mensaje de clasificacion de material
+			public void mensajeClasificacion1() {
+				System.out.println("");
+				System.out.println("1) Clasificacion de Material: Clase 1");
+				System.out.println("Tipo de Material: Polvoriento");
+				System.out.println("Abrasividad: No abrasivo");
+				System.out.println("Densidad: 0,4 - 0,7 [t/m3]");
+				System.out.println("Fluidez: Fluye facilmente");
+			}
+			public void mensajeClasificacion2() {
+				System.out.println("");
+				System.out.println("2) Clasificacion de material: Clase 2");
+				System.out.println("Tipo de material: granos o pequeños tamaños");
+				System.out.println("Abrasividad: No abrasivos");
+				System.out.println("Densidad: 0,6 - 0,8 [t/m3]");
+				System.out.println("Fluidez: Fluye fácilmente");
+			}
+			public void mensajeClasificacion3() {
+				System.out.println("");
+				System.out.println("3) Clasificacion de material: Clase 3");
+				System.out.println("Tipo de material: pequeño tamaño, mezclados con polvos");
+				System.out.println("Abrasividad: Semi abrasivos");
+				System.out.println("Densidad: 0,6 - 1,2 [t/m3]");
+				System.out.println("Fluidez: Flujo medio");
+			}
+			public void mensajeClasificacion4() {
+				System.out.println("");
+				System.out.println("4) Clasificacion de material: Clase 4");
+				System.out.println("Tipo de material: granulares o pequeños tamaños con polvos");
+				System.out.println("Abrasividad: Semi-abrasivos o abrasivos");
+				System.out.println("Densidad: Densidad 0,8 - 1,6 [t/m3]");
+				System.out.println("Fluidez: Flujo lento");
+			}
+			public void mensajeClasificacion5() {
+				System.out.println("");
+				System.out.println("5) Clasificacion de material: Clase 5");
+				System.out.println("Tipo de material: granos o pequeños tamaños");
+				System.out.println("Abrasividad: Abrasivos");
+				System.out.println("Densidad = 1 - 2 [t/m3]");
+				System.out.println("Fluidez = No recomendado para transportador helicoidal");
+			}
+			
+			//Metodo mensaje categoria de peso
+			public void mensajeCategoriaPeso() {
+				System.out.println("");
+				System.out.println("Finalmente el ultimo parametro a establecer es la categoria de peso del material.");
+				System.out.println("Este parametro es relevante, ya que sera utilizado en calculos posteriores.");
+				System.out.println("No es necesario que en este caso seas tu el que determina este valor, ya que se te asignara automaticamente tras seleccionar la clasificacion a la que pertenece tu material.");
+				presionarEnter();
+				System.out.println("");
+				System.out.println("veras, si tu material pertenece a las categorias 1 o 2, entonces entrara en la categoria de peso Ligero.");
+				System.out.println("Por otro lado, si pertenece a las categorias 3 o 4, entonces entrara en la categoria de peso Pesado.");
+				materialController.DefinirCaterogiaPeso(materialController.obtenerOpcionClasificacionMaterial());
+				System.out.println("En vista que la clasificacion de tu material pertenece a la "+materialController.obtenerClasificacionMaterial()+", tu categoria de peso sera"+materialController.obtenerCategoriaPeso()+".");
+				System.out.println("Y como ya sabras, a continuacion te presentare un resumen de los parametros que has establecido");
+			}
+			
+			
+		//Metodos de utilidad	
+			//Metodo para mensaje estandar de que se debe elegir una opcion valida
+			public void MensajeReintento() {
+				System.out.println("Debes elegir una de las opciones disponibles");
+			}
+			
+			//Metodo para separar secciones de forma ordenada
+			public void separador() {
+				System.out.println("");
+				System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
+				System.out.println("");
+			}
+			
+			//metodo para presionar enter y avanzar
+			public  void presionarEnter() {
+				System.out.println("presiona enter para continuar.");
+				lector.nextLine();
+			}
+			
+			
+}

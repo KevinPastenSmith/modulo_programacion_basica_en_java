@@ -1,0 +1,73 @@
+package View;
+
+import Controller.MaterialController;
+
+public class InformeFinalView {
+
+	static MaterialController materialControllerInforme = new MaterialController();
+	
+	//Metodo para traer los datos
+	public void resumenDatos() {
+		materialControllerInforme.obtenerTipoMezcla();
+		materialControllerInforme.obtenerClasificacionMaterial();
+		materialControllerInforme.obtenerTipoMaterial();
+		materialControllerInforme.obtenerAbrasividad();
+		materialControllerInforme.obtenerDensidad();
+		materialControllerInforme.obtenerFluidez();
+		materialControllerInforme.obtenerCategoriaPeso();
+
+	}
+	
+	//Metodo para el resumen de datos
+			public void resumenParametrosMaterial() {
+			
+				
+				if (materialControllerInforme.obtenerTipoMezcla()==null) {
+				}
+				else {
+					System.out.println("1) Tipo de mezcla = "+materialControllerInforme.obtenerTipoMezcla());
+				}
+				if (materialControllerInforme.obtenerClasificacionMaterial()==null) {
+				}
+				else {
+					System.out.println("2) Clasificacion de material = "+materialControllerInforme.obtenerClasificacionMaterial());
+				}
+				
+				if (materialControllerInforme.obtenerTipoMaterial()==null) {
+					
+				}
+				else {
+					System.out.println("3) Tipo de material = "+materialControllerInforme.obtenerTipoMaterial());
+				}
+				
+				if (materialControllerInforme.obtenerAbrasividad()==null) {
+					
+				}
+				else {
+					System.out.println("4) Abrasividad = "+materialControllerInforme.obtenerAbrasividad());
+				}
+				
+				if (materialControllerInforme.obtenerDensidad()==0.0) {
+					
+				}
+				else {
+					System.out.println("5) Densidad promedio = "+materialControllerInforme.obtenerDensidad()+"[ton/m3]");
+				}
+				
+				if (materialControllerInforme.obtenerFluidez()==null) {
+					
+				}
+				else {
+					System.out.println("6) Fluidez = "+materialControllerInforme.obtenerFluidez());
+				}
+				
+				if (materialControllerInforme.obtenerCategoriaPeso()==null) {
+					
+				}
+				else {
+					System.out.println("7) Categoria de peso = "+materialControllerInforme.obtenerCategoriaPeso());
+				}
+			 }
+	
+	
+}
