@@ -1,3 +1,0 @@
-Durante esta clase he podido comprender como realizar un menu para que le usuario elija que accion realizar, segun los parametros limitados por el codigo.
-he podido aprender a utilizar la herramienta "switch" y como se utilizan los "case". Tambien ha sido sumamente ilustrativo que al querer enviar un mensaje al usuario, este se peude hacer de una forma resumida dependiendo de si una condicion se cumple ono, como es el caso de: "String mensaje2 = primo? "El numero es primo":"El numero no es primo";". 
-Finalmente la ejemplificacion de un for dentro de otro ciclo for, me ha permitido comprender una forma de resolucion de problemas que presenta una utilidad muy practica.
