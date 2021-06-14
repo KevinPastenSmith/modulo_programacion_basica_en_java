@@ -1,0 +1,43 @@
+package View;
+
+import java.util.Scanner;
+
+
+public class MainMenu {
+	static Scanner lector = new Scanner (System.in);
+	
+	static String entrada = "";
+	
+	public static void main(String[] args) {
+		
+		mensajeInicialMenu();
+
+	}
+
+	public static void mensajeInicialMenu() {
+		System.out.println("Hola Esbirro!!");
+		System.out.println("Soy un programa creado para ayudarte, sugerirte y guiarte durante la magnanima odisea del diseño de un transportador helicoidal.");
+		System.out.println("Presiona enter si estas listo para esta fantastica aventura milenaria.");
+		do{
+		    entrada  = lector.nextLine();
+		 }
+		 while(!entrada.equals(""));
+		System.out.println("Excelente!!, al parecer eres un ser vivo muy gallardo.");
+		System.out.println("Bueno veras, antes de poder determinar los atributos de tu transportador helicoidal, debes establecer algunas caracteristicas del material que necesitas transportar.");
+		System.out.println("Esto es fundamental!!, ya que en base la informacion que ingreses es como se diseñara tu transportador.");
+		System.out.println("");
+		System.out.println("El primer paso para establecer las caracteristicas de tu material es determinar el tipo de mezcla que forma dicho material.");
+		System.out.println("A que me refiero con esto?. Bueno, deberas presionar enter para saber :)");
+		do{
+		    entrada  = lector.nextLine();
+		 }
+		 while(!entrada.equals(""));
+		System.out.println("Magnifico Esbirro!!!, se ve que tu curiosidad es abismal.");
+		System.out.println("Continuando en lo que nos quedamos, deberas identificar los elementos que conforman tu material para poder establecer la naturaleza de la mezcla.");
+		System.out.println("Si tu material se compone de elementos de la misma naturaleza, entonces diremos que tu mezcla es Homogénenea.");
+		System.out.println("Por otro lado, si notas que tu material contiene elementos diversos o con naturaleza distinta, entonces diremos que tu mezcla es Heterogénea.");
+		
+		
+	}
+		
+}
