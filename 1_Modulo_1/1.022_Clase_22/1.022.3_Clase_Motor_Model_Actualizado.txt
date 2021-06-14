@@ -1,0 +1,47 @@
+package Model;
+
+public class Motor {
+
+		//Atributos
+		private String sentidoGiroMotor;//Direccion de giro del motor
+		private int opcionSentidoGiroMotor;//1)horario, 2)antihorario
+		private String posicionMotor;//Posicion donde se instalara el motor
+		private int opcionPosicionMotor;//1)arriba, 2)abajo
+		
+		//Metodo Constructor
+		public Motor(String sentidoGiroMotor, int opcionSentidoGiroMotor, String posicionMotor, int opcionPosicionMotor) {
+			super();
+			this.sentidoGiroMotor = sentidoGiroMotor;
+			this.opcionSentidoGiroMotor = opcionSentidoGiroMotor;
+			this.posicionMotor = posicionMotor;
+			this.opcionPosicionMotor = opcionPosicionMotor;
+		}
+		
+		//Metodos Getters y Setters
+		public String getSentidoGiroMotor() {
+			return sentidoGiroMotor;
+		}
+		public void setSentidoGiroMotor(String sentidoGiroMotor) {
+			this.sentidoGiroMotor = sentidoGiroMotor;
+		}
+		public int getOpcionSentidoGiroMotor() {
+			return opcionSentidoGiroMotor;
+		}
+		public void setOpcionSentidoGiroMotor(int opcionSentidoGiroMotor) {
+			this.opcionSentidoGiroMotor = opcionSentidoGiroMotor;
+		}
+		public String getPosicionMotor() {
+			return posicionMotor;
+		}
+		public void setPosicionMotor(String posicionMotor) {
+			this.posicionMotor = posicionMotor;
+		}
+		public int getOpcionPosicionMotor() {
+			return opcionPosicionMotor;
+		}
+		public void setOpcionPosicionMotor(int opcionPosicionMotor) {
+			this.opcionPosicionMotor = opcionPosicionMotor;
+		}
+	
+	
+}
