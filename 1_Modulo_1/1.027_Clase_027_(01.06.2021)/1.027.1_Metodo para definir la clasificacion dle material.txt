@@ -1,0 +1,67 @@
+//Metodo: Definir la clasificacion del material
+			public String DefinirClasificacionMaterial(int opcionClasificacionMaterialView) {
+				
+				do {
+					
+					setearOpcionClasificacionMaterial(opcionClasificacionMaterialView);
+					
+					if (materialModel.getOpcionClasificacionMaterial()==1) {
+						materialModel.setClasificacionMaterial("Clase 1");
+						materialModel.setTipoMaterial("Polvoriento");
+						materialModel.setAbrasividad("No abrasivo");
+						materialModel.setDensidad(0.55);
+						materialModel.setFluidez("Fluye Facilmente");
+						System.out.println("");
+						System.out.println("Excelente!!, has establecido que tu clasificacion de material pertenece a la "+materialModel.getClasificacionMaterial()+".");
+						break;
+					}
+					else if (materialModel.getOpcionClasificacionMaterial()==2) {
+						materialModel.setClasificacionMaterial("Clase 2");
+						materialModel.setTipoMaterial("granos o pequeños tamaños");
+						materialModel.setAbrasividad("No abrasivo");
+						materialModel.setDensidad(0.70);
+						materialModel.setFluidez("Fluye Facilmente");
+						System.out.println("");
+						System.out.println("Excelente!!, has establecido que tu clasificacion de material pertenece a la "+materialModel.getClasificacionMaterial()+".");
+						break;
+					}
+					else if (materialModel.getOpcionClasificacionMaterial()==3) {
+						 materialModel.setClasificacionMaterial("Clase 3");
+							materialModel.setTipoMaterial("pequeño tamaño, mezclados con polvos");
+							materialModel.setAbrasividad("Semi abrasivos");
+							materialModel.setDensidad(0.90);
+							materialModel.setFluidez("Flujo medio");
+							System.out.println("");
+							System.out.println("Excelente!!, has establecido que tu clasificacion de material pertenece a la "+materialModel.getClasificacionMaterial()+".");
+							break;
+					}		
+					
+					else if (materialModel.getOpcionClasificacionMaterial()==4) {
+						 materialModel.setClasificacionMaterial("Clase 4");
+							materialModel.setTipoMaterial("granulares o pequeños tamaños con polvos");
+							materialModel.setAbrasividad("Semi-abrasivos o abrasivos");
+							materialModel.setDensidad(1.20);
+							materialModel.setFluidez("Flujo lento");
+							System.out.println("");
+							System.out.println("Excelente!!, has establecido que tu clasificacion de material pertenece a la "+materialModel.getClasificacionMaterial()+".");
+							break;
+					}	
+					
+					else if (materialModel.getOpcionClasificacionMaterial()==4) {
+						materialModel.setClasificacionMaterial("Clase 5");
+						materialModel.setTipoMaterial("granos o pequeños tamaños");
+						materialModel.setAbrasividad("Abrasivos");
+						materialModel.setDensidad(1.50);
+						materialModel.setFluidez("No recomendado para transportador helicoidal");
+						System.out.println("");
+						System.out.println("Excelente!!, has establecido que tu clasificacion de material pertenece a la "+materialModel.getClasificacionMaterial()+".");
+						break;
+					}
+					else {
+						MainMenuView.MensajeReintento();
+					}
+					
+				}while(materialModel.getOpcionClasificacionMaterial()>=1 || materialModel.getOpcionClasificacionMaterial()<=5 );
+				
+				return materialModel.getClasificacionMaterial();
+			}
