@@ -1,0 +1,115 @@
+package View;
+
+import Controller.MaterialController;
+
+import Controller.MotorController;
+
+import java.util.Scanner;
+
+
+public class GuiaCompleta {
+	
+	 Scanner lector = new Scanner (System.in);
+	 Mensajes mensajes = new Mensajes();
+	 MaterialController materialController = new MaterialController(); 	
+	 MotorController motorController = new MotorController();
+	 InformeFinalView informe = new InformeFinalView();
+	
+	public void main() {
+		
+		mensajes.guiaDeterminarTipoMezcla(); //Conjunto de mensajes que guian a determinar el tipo de mezcla
+		mensajes.opcionesTipoMezcla();
+	
+		do {
+			try {
+			materialController.setearOpcionMezcla(lector.nextInt());
+			materialController.definirTipoMezcla(materialController.obtenerOpcionMezcla()); 
+			}catch(Exception e){
+				mensajes.MensajeReintento();
+				lector.nextLine();
+			}	
+		
+		}while(materialController.obtenerOpcionMezcla()!=1 && materialController.obtenerOpcionMezcla()!=2);
+		
+		System.out.println("");
+		System.out.println("Tambien te informo que desde ahora, cada vez que determines o selecciones una caracteristica necesaria para el diseño,");
+		System.out.println("Desplegare un resumen de estas, para que puedas ir viendo que valores producen que resultados, tal como te muestro a continuacion");
+		System.out.println("");
+		
+		informe.resumenParametrosMaterial();
+		System.out.println("");
+		mensajes.presionarEnter();
+		mensajes.separador();
+		
+		mensajes.guiaDeterminarClasificacionMaterial1();
+		mensajes.presionarEnter();
+		
+		mensajes.mensajeClasificacion1();
+		mensajes.presionarEnter();
+		mensajes.mensajeClasificacion2();
+		mensajes.presionarEnter();
+		mensajes.mensajeClasificacion3();
+		mensajes.presionarEnter();
+		mensajes.mensajeClasificacion4();
+		mensajes.presionarEnter();
+		mensajes.mensajeClasificacion5();
+		mensajes.presionarEnter();
+		
+		mensajes.guiaDeterminarClasificacionMaterial2();
+		do {
+			try {
+				materialController.setearOpcionClasificacionMaterial(lector.nextInt());
+				materialController.definirClasificacionMaterial(materialController.obtenerOpcionClasificacionMaterial());
+				}catch(Exception e){
+					mensajes.MensajeReintento();
+					lector.nextLine();
+				}	
+		}while(materialController.obtenerOpcionClasificacionMaterial()<1 || materialController.obtenerOpcionClasificacionMaterial()>5 );
+	
+		System.out.println("Ya estas muy cerca de establecer la totalidad de atributos de tu material y tal como la vez anterior a continuacion te presento el resumen de tus elecciones:");
+		System.out.println("");
+		informe.resumenParametrosMaterial();
+		mensajes.presionarEnter();
+		mensajes.separador();
+		
+		mensajes.mensajeCategoriaPeso();
+		materialController.definirCaterogiaPeso(materialController.obtenerOpcionClasificacionMaterial());
+		
+		System.out.println("Y como ya sabras, a continuacion te presentare un resumen de los parametros que has establecido");
+		mensajes.presionarEnter();
+		System.out.println("");
+		informe.resumenParametrosMaterial();
+		mensajes.mensajeFinalMaterial();
+		mensajes.presionarEnter();
+
+		
+		 mensajes.separador();
+		 mensajes.mensajeInicialMotor();
+		
+		 do {
+			try {
+				motorController.setearOpcionSentidoGiroMotor(lector.nextInt());
+				motorController.definirSentidoGiroMotor(motorController.obtenerOpcionSentidoGiroMotor());
+				}catch(Exception e){
+					mensajes.MensajeReintento();
+					lector.nextLine();
+				}	
+		 }while(motorController.obtenerOpcionSentidoGiroMotor()!=1 && motorController.obtenerOpcionSentidoGiroMotor()!=2);
+	
+		 mensajes.guiaDeterminarPosicionMotor();
+		 do {
+			try {
+				motorController.setearOpcionPosicionMotor(lector.nextInt());
+				motorController.definirPosicionMotor(motorController.obtenerOpcionPosicionMotor());
+				}catch(Exception e){
+					mensajes.MensajeReintento();
+					lector.nextLine();
+				}	
+		 }while(motorController.obtenerOpcionPosicionMotor()!=1 && motorController.obtenerOpcionPosicionMotor()!=2);
+	 	
+	 System.out.println("Grandioso, ya has establecido los parametros operativos de tu motor que necesitas para deiseñar el sentido de fabricacion de tu helice");
+	 System.out.println("Y tambien para establecer el sentido de giro del transportador, esto es fundamental para que le material se mueva en la direccion que pretendes.");
+	 mensajes.separador();
+	}
+
+}

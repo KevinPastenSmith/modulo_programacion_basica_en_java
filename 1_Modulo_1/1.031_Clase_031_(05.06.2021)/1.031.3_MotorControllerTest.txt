@@ -1,0 +1,40 @@
+package Controller;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class MotorControllerTest {
+
+	@Test
+	void testDefinirSentidoGiroMotor1() {
+		MotorController motorController = new MotorController();
+		String respuesta = motorController.definirSentidoGiroMotor(1);
+		String respuestaEsperada = "Horario";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	
+	@Test
+	void testDefinirSentidoGiroMotor2() {
+		MotorController motorController = new MotorController();
+		String respuesta = motorController.definirSentidoGiroMotor(2);
+		String respuestaEsperada = "Anti-horario";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+
+	@Test
+	void testDefinirPosicionMotor1() {
+		MotorController motorController = new MotorController();
+		String respuesta = motorController.definirPosicionMotor(1);
+		String respuestaEsperada = "Abajo";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	
+	@Test
+	void testDefinirPosicionMotor2() {
+		MotorController motorController = new MotorController();
+		String respuesta = motorController.definirPosicionMotor(2);
+		String respuestaEsperada = "Arriba";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+}
