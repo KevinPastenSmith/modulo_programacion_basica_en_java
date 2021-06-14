@@ -1,0 +1,204 @@
+package controller;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+
+class TransportadorControllerTest {
+
+	TransportadorController transportadorController = new TransportadorController();
+	
+	//1) Pruebas para definir el diametro de helice
+	@Test
+	void testDefinirDiametroHelice1() {
+		double respuesta = transportadorController.definirDiametroHelice(30, "Homogénea");
+		double respuestaEsperada = 360;
+		assertEquals(respuestaEsperada, respuesta);
+	}
+
+	@Test
+	void testDefinirDiametroHelice2() {
+		double respuesta = transportadorController.definirDiametroHelice(30, "Heterogénea");
+		double respuestaEsperada = 120;
+		assertEquals(respuestaEsperada, respuesta);	
+		
+	}
+
+	
+	//2) pruebas para definir el diametro del tubo
+	@Test
+	void testDefinirDiametroTubo1() {
+		double respuesta = transportadorController.definirDiametroTubo(152.4);
+		double respuestaEsperada = 1.5;
+		assertEquals(respuestaEsperada, respuesta);	
+	}
+	@Test
+	void testDefinirDiametroTubo2() {
+		double respuesta = transportadorController.definirDiametroTubo(304);
+		double respuestaEsperada = 2;
+		assertEquals(respuestaEsperada, respuesta);	
+	}
+	@Test
+	void testDefinirDiametroTubo3() {
+		double respuesta = transportadorController.definirDiametroTubo(380);
+		double respuestaEsperada = 3;
+		assertEquals(respuestaEsperada, respuesta);	
+	}
+	@Test
+	void testDefinirDiametroTubo4() {
+		double respuesta = transportadorController.definirDiametroTubo(508);
+		double respuestaEsperada = 4;
+		assertEquals(respuestaEsperada, respuesta);	
+	}
+	
+	//3) pruebas para el sentido de giro del transportador
+	@Test
+	void testDefinirSentidoGiroTransportador1() {
+		String respuesta = transportadorController.definirSentidoRotacionTransportador("Horario", "Abajo");
+		String respuestaEsperada = "Anti-horario";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	@Test
+	void testDefinirSentidoGiroTransportador2() {
+		String respuesta = transportadorController.definirSentidoRotacionTransportador("Horario", "Arriba");
+		String respuestaEsperada = "Horario";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	@Test
+	void testDefinirSentidoGiroTransportador3() {
+		String respuesta = transportadorController.definirSentidoRotacionTransportador("Anti-horario", "Abajo");
+		String respuestaEsperada = "Horario";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	@Test
+	void testDefinirSentidoGiroTransportador4() {
+		String respuesta = transportadorController.definirSentidoRotacionTransportador("Anti-horario", "Arriba");
+		String respuestaEsperada = "Anti-horario";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	
+	//4) pruebas para el sentido de fabricacion de la helice
+	@Test
+	void testSentidoFabricacionhelice1() {
+		String respuesta = transportadorController.definirSentidoFabricacionHelice("Horario");
+		String respuestaEsperada = "Mano Izquierda";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	@Test
+	void testSentidoFabricacionhelice2() {
+		String respuesta = transportadorController.definirSentidoFabricacionHelice("Anti-horario");
+		String respuestaEsperada = "Mano Derecha";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+
+	//5) pruebas para definir el tipo de helice
+	@Test
+	void testTipoHelice1() {
+		String respuesta = transportadorController.definirTipoHelice(1);
+		String respuestaEsperada = "Helicoidal Sencillo, Paso Estándar";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	@Test
+	void testTipoHelice2() {
+		String respuesta = transportadorController.definirTipoHelice(2);
+		String respuestaEsperada = "Helicoidal Sencillo, Paso Corto";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	@Test
+	void testTipoHelice3() {
+		String respuesta = transportadorController.definirTipoHelice(3);
+		String respuestaEsperada = "Helicoidal Sencillo, Paso Medio";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	@Test
+	void testTipoHelice4() {
+		String respuesta = transportadorController.definirTipoHelice(4);
+		String respuestaEsperada = "Helicoidal con Corte, Paso Estándar";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	@Test
+	void testTipoHelice5() {
+		String respuesta = transportadorController.definirTipoHelice(5);
+		String respuestaEsperada = "Helicoidal de Listón, Paso Estandar";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	@Test
+	void testTipoHelice6() {
+		String respuesta = transportadorController.definirTipoHelice(6);
+		String respuestaEsperada = "Helicoidal con Paletas, Paso Estandar";
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	
+	
+	//6) pruebas para la determinacion del paso de la helice
+	@Test
+	void testPasoHelice1() {
+		int[]opcionHelice =new int[6];
+		double[]paso= {60,40,30,60,60,60};
+		for (int i=0;i<6;i++) {
+			opcionHelice[i]=i+1;
+			double respuesta = transportadorController.definirPasoHelice(opcionHelice[i],60);
+			double respuestaEsperada = paso[i];
+			assertEquals(respuestaEsperada, respuesta);	
+			}
+		}
+
+	//7) pruebas para velocidad de giro del transportador
+	@Test
+	void testVelocidadGiroTransportador1() {
+		int respuesta = transportadorController.definirVelocidadGiroTransportador("Pesado");
+		int respuestaEsperada = 50;
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	@Test
+	void testVelocidadGiroTransportador2() {
+		int respuesta = transportadorController.definirVelocidadGiroTransportador("Ligero");
+		int respuestaEsperada = 150;
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	
+	//8) pruebas para el area de relleno
+	@Test
+	void testAreaRelleno() {
+		int[]opcionClasificacion =new int[4];
+		double[]coeficiente= {0.4,0.32,0.25,0.125};
+		for (int i=0;i<4;i++) {
+			opcionClasificacion[i]=i+1;
+			double respuesta = transportadorController.definirAreaRelleno(opcionClasificacion[i],60);
+			double respuestaEsperada = 0.6*0.6*coeficiente[i]*3.14/4;
+			assertEquals(respuestaEsperada, respuesta);	
+			}
+		}
+	
+	//9) pruebas velocidad de desplazamiento material
+	@Test
+	void testVelicdadDesplazamiento1() {
+		double respuesta = transportadorController.definirVelocidadDezplazamiento(50,60);
+		double respuestaEsperada = 50*60/60;
+		assertEquals(respuestaEsperada, respuesta);
+	}@Test
+	void testVelicdadDesplazamiento2() {
+		double respuesta = transportadorController.definirVelocidadDezplazamiento(150,60);
+		double respuestaEsperada = 150*60/60;
+		assertEquals(respuestaEsperada, respuesta);
+	}
+	
+	//10) pruebas ara capacidad del transportador
+	@Test
+	void testCapacidadTransportador() {
+		int[]opcionClasificacion =new int[6];
+		double[]coeficiente= {1,0.9,0.8,0.7,0.6,0.5};
+		for (int i=0;i<6;i++) {
+			opcionClasificacion[i]=i+1;
+			double respuesta = transportadorController.definirCapacidadTransportador(opcionClasificacion[i],65,0.5,0.5,0.5);
+			double respuestaEsperada = 3600*coeficiente[i]*0.5*0.5*0.5;
+			assertEquals(respuestaEsperada, respuesta);	
+			}
+		}
+	
+	
+	
+}
+
+
