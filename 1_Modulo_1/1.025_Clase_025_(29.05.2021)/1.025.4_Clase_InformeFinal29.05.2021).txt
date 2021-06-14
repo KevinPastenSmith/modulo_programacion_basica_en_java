@@ -1,0 +1,21 @@
+package View;
+
+import Model.MaterialModel;
+
+public class InformeFinalView {
+
+	MaterialModel materialModelInforme = new MaterialModel();
+	
+	public void resumenDatos() {
+		materialModelInforme.getTipoMezcla();
+		materialModelInforme.getTipoMaterial();
+		materialModelInforme.getClasificacionMaterial();
+		materialModelInforme.getAbrasividad();
+		materialModelInforme.getDensidad();
+		materialModelInforme.getFluidez();
+		materialModelInforme.getCategoriaPeso();
+
+	}
+	
+	
+}
