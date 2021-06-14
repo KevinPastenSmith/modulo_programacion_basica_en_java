@@ -1,0 +1,26 @@
+package controller;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class TransportadorControllerTest {
+
+	@Test
+	void testDefinirDiametroHelice1() {
+		TransportadorController transportadorController = new TransportadorController();
+		float respuesta = transportadorController.definirDiametroHelice(30, "Homogénea");
+		float respuestaEsperada = 360;
+		assertEquals(respuestaEsperada, respuesta);
+	}
+
+	@Test
+	void testSetearTamañoParticula2() {
+		TransportadorController transportadorController = new TransportadorController();
+		float respuesta = transportadorController.definirDiametroHelice(30, "Heterogénea");
+		float respuestaEsperada = 120;
+		assertEquals(respuestaEsperada, respuesta);	
+		
+	}
+
+}

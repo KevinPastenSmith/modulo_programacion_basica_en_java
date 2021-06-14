@@ -1,0 +1,57 @@
+package controller;
+
+import model.TransportadorModel;
+import view.Mensajes;
+
+public class TransportadorController {
+
+	static Mensajes mensajes = new Mensajes();
+	static TransportadorModel transportadorModel = new TransportadorModel();
+	static MaterialController materialController = new MaterialController();
+	
+	//Metodos para definir atributos
+	
+		//Metodo para definir el diametro de la helice
+		public float definirDiametroHelice(float tamañoParticula, String tipoMezcla) {
+			
+			if (tipoMezcla=="Homogénea") {
+				transportadorModel.setDiametroHelice(12*tamañoParticula);
+				System.out.println("Muy bien! segun los parametros que has ingresado y correspondiente a tu tipo de mezcla, el diametro aproximado recomendado para la helice de tu transportador es de: ");
+				System.out.println(transportadorModel.getDiametroHelice()+"[mm]");
+			}
+			else if (tipoMezcla=="Heterogénea") {
+				transportadorModel.setDiametroHelice(4*tamañoParticula);
+				System.out.println("Muy bien! segun los parametros que has ingresado y correspondiente a tu tipo de mezcla, el diametro aproximado recomendado para la helice de tu transportador es de: ");
+				System.out.println(transportadorModel.getDiametroHelice()+"[mm]");
+			}
+			else {
+				mensajes.MensajeReintento();
+			}
+			
+			return transportadorModel.getDiametroHelice();
+			
+		}
+	
+	
+		
+		
+	//Metodos para setear valores
+		
+		//Metodo para setear el tamaño de particula
+		public void setearTamañoParticula(float tamañoParticula) {
+			 transportadorModel.setTamañoParticula(tamañoParticula);
+		}
+		
+		
+		
+	//Metodos para obtener valores	
+
+		//Metodo para obtener el tamaño de particula
+		public float obtenerTamañoParticula() {
+			return transportadorModel.getTamañoParticula();
+		}
+		
+		public String obtenerTipoMezcla() {
+			return materialController.obtenerTipoMezcla();
+		}
+}
