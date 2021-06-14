@@ -1,0 +1,71 @@
+package Controller;
+
+import java.util.Scanner;
+
+public class menus {
+
+	public static void main(String[] args) {
+		
+		Scanner read = new Scanner(System.in);
+		
+		float tamañoParticula; //tamaño maximo de particula
+		int opcionMezcla; // 1.- homogenea, 2.- heterogenea
+		String mezcla; //Tipo de mezcla (1.- homogenea, 2.- heterogenea)
+		float diametroTornillo; //Diametro del tornillo
+		
+		
+		System.out.println("- Para poder determinar el diametro del tornillo, se requiere ingresar datos previos.");
+		System.out.println("- Debe ingresar tanto el tamaño maximo de particula dentro del flujo como el tipo de mezcla.");
+		System.out.println("- A continuacion ingrese el valor del tamaño maximo de particula expresado en milimetros:");
+		
+		tamañoParticula = read.nextFloat();
+		
+		
+		System.out.println("");
+		System.out.println("- Ahora debe identificar y seleccionar el tipo de mezcla que pretende transportar.");
+		
+			
+			do {
+				System.out.println("");
+				System.out.println("Debe ingresar el numero de una de las dos opciones");
+				System.out.println("Vuelva a ingresar el parametro");
+				System.out.println("");
+				System.out.println("1) Homogénea");
+				System.out.println("2) Heterogénea");
+				System.out.println("");
+				System.out.println("A continuacion ingrese “1” si su mezcla es Homogenea o ingrese “2” si su mezcla es heterogenea, luego presiones “enter: ”");
+		
+				opcionMezcla = read.nextInt();	
+				
+				if (opcionMezcla==1){
+					mezcla = "homogénea";
+					diametroTornillo = 12 * tamañoParticula;
+					System.out.println("");
+					System.out.println("Usted a establecido su tipo de mezcla como "+mezcla+" por lo tanto su diametro de tornillo es de "+diametroTornillo+" [mm]");
+					System.out.println("");
+					System.out.println("- Mezcla "+mezcla);
+					System.out.println("- Diametro del tornillo = "+diametroTornillo);
+					break;
+				}
+				
+				else if (opcionMezcla==2){
+					mezcla = "heterogénea";
+					diametroTornillo = 4*tamañoParticula;
+					System.out.println("");
+					System.out.println("Usted a establecido su tipo de mezcla como "+mezcla+" por lo tanto su diametro de tornillo es de "+diametroTornillo+" [mm]");
+					System.out.println("");
+					System.out.println("- Mezcla "+mezcla);
+					System.out.println("- Diametro del tornillo = "+diametroTornillo);
+					break;
+				}
+				
+			}while(opcionMezcla!=1 || opcionMezcla!=2);
+		
+			
+			
+			
+		
+		read.close();
+	}
+
+}
