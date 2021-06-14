@@ -1,0 +1,47 @@
+package Controller;
+
+import java.util.Scanner;
+
+import View.MainMenuView;
+
+import Model.MotorModel;
+
+
+public class MotorController {
+
+	
+	Scanner lector= new Scanner(System.in);
+	MotorModel motorModel = new MotorModel();
+	
+	
+	//Metodo para definir el sentido de giro del motor
+	public void DefinirSentidoGiroMotor(int opcionSentidoGiroMotor, String sentidoGiroMotor){
+		
+		opcionSentidoGiroMotor=lector.nextInt();
+		if (opcionSentidoGiroMotor==1) {
+			sentidoGiroMotor="Horario";
+		}
+		else if (opcionSentidoGiroMotor==2) {
+			sentidoGiroMotor="Antihorario";
+		}
+		else {
+			MainMenuView.MensajeReintento();
+		}
+			
+	}
+	
+	public void DefinirPosicionMotor(int opcionPosicionMotor, String posicionMotor) {
+		
+		opcionPosicionMotor=lector.nextInt();
+		if (opcionPosicionMotor==1) {
+			posicionMotor="Abajo";
+		}
+		else if (opcionPosicionMotor==2) {
+			posicionMotor="Arriba";
+		}
+		else {
+			MainMenuView.MensajeReintento();
+		}
+	}
+	
+}

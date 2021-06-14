@@ -1,0 +1,324 @@
+package Model;
+
+public class TransportadorHelicoidalModel {
+
+	//Atributos
+	
+	// 1) Atributos para determinar Diametro del Helicoidal
+	float diametroTornillo; //Diametro del tornillo en milimetros [mm]
+	float tamañoParticula; //tamaño maximo de particula en milimetros [mm]
+	String tipoMezcla; //Tipo de mezcla
+	int opcionMezcla; // 1.- homogenea, 2.- heterogenea
+	
+	
+	// 2) Atributos del Sentido de Giro 
+	String sentidoRotacionTransportador; // sentido de rotacion del transportador
+	
+	// 3) Atributos para el sentido de la Helice
+	String sentidohelice; //sentido de la hélice
+
+	// 4) Atributos para El tipo de Helice
+	String tipoHelice; // tipo de hélice
+	int opcionHelice; // número de hélice a seleccionar
+	
+	// 5) Atributos para el Paso de la Helice
+	float pasoUnico; // paso del tornillo en milimetros [mm]
+	float paso1; // paso inicial cuando "hélice = 4" en milimetros [mm]
+	float paso2; // paso final cuando "hélice = 4" en milimetros [mm]
+	
+	// 6) Atributos para Velocidad de Giro del Transportador
+	int velocidadGiro; //Velocidad estandar de giro [r.p.m.]
+	String categoriaPeso; //1.-pesado, 2.-ligero
+	
+	// 7) Atributos para el Area de Relleno
+	float diametroTornilloMetrico;// Diametro del tornillo en metros [m]
+	float areaRelleno; // Área de relleno del transportador; [m2]
+	float pi; // número pi [-]
+	float coeficienteRelleno; //: Coeficiente de relleno de la sección [-]
+	
+	
+	// 8) Atributos para la Velocidad de Transporte
+	float velocidadDesplazamiento; // Velocidad de desplazamiento del transportador [m/s]
+	float paso; // Paso del tornillo o paso de hélice [m]
+	
+	
+	// 9) Atributos para la Capacidad del transportador
+	float flujoMaterial; //Flujo de material transportado [T/h]
+	float rho; // es la densidad del material transportado [T/m3]
+	float i; //Coeficiente de disminución, debido a la inclinación del transportador [-]
+	int inclinacion; //grado de inclinacion del transportador [-]
+	
+	
+	//Metodos
+	
+	
+	//Metodo Cosntructor
+	public TransportadorHelicoidalModel(float diametroTornillo, float tamañoParticula, String tipoMezcla, int opcionMezcla,
+			String sentidoRotacionTransportador, String sentidohelice, String tipoHelice, int opcionHelice,
+			float pasoUnico, float paso1, float paso2, int velocidadGiro, String categoriaPeso,
+			float diametroTornilloMetrico, float areaRelleno, float pi, float coeficienteRelleno,
+			float velocidadDesplazamiento, float paso, float flujoMaterial, float rho, float i, int inclinacion) {
+		super();
+		this.diametroTornillo = diametroTornillo;
+		this.tamañoParticula = tamañoParticula;
+		this.tipoMezcla = tipoMezcla;
+		this.opcionMezcla = opcionMezcla;
+		this.sentidoRotacionTransportador = sentidoRotacionTransportador;
+		this.sentidohelice = sentidohelice;
+		this.tipoHelice = tipoHelice;
+		this.opcionHelice = opcionHelice;
+		this.pasoUnico = pasoUnico;
+		this.paso1 = paso1;
+		this.paso2 = paso2;
+		this.velocidadGiro = velocidadGiro;
+		this.categoriaPeso = categoriaPeso;
+		this.diametroTornilloMetrico = diametroTornilloMetrico;
+		this.areaRelleno = areaRelleno;
+		this.pi = pi;
+		this.coeficienteRelleno = coeficienteRelleno;
+		this.velocidadDesplazamiento = velocidadDesplazamiento;
+		this.paso = paso;
+		this.flujoMaterial = flujoMaterial;
+		this.rho = rho;
+		this.i = i;
+		this.inclinacion = inclinacion;
+	}
+
+
+	
+	
+	//Metodos Getters y Setters
+	public float getDiametroTornillo() {
+		return diametroTornillo;
+	}
+
+
+	public void setDiametroTornillo(float diametroTornillo) {
+		this.diametroTornillo = diametroTornillo;
+	}
+
+
+	public float getTamañoParticula() {
+		return tamañoParticula;
+	}
+
+
+	public void setTamañoParticula(float tamañoParticula) {
+		this.tamañoParticula = tamañoParticula;
+	}
+
+
+	public String getTipoMezcla() {
+		return tipoMezcla;
+	}
+
+
+	public void setTipoMezcla(String tipoMezcla) {
+		this.tipoMezcla = tipoMezcla;
+	}
+
+
+	public int getOpcionMezcla() {
+		return opcionMezcla;
+	}
+
+
+	public void setOpcionMezcla(int opcionMezcla) {
+		this.opcionMezcla = opcionMezcla;
+	}
+
+
+	public String getSentidoRotacionTransportador() {
+		return sentidoRotacionTransportador;
+	}
+
+
+	public void setSentidoRotacionTransportador(String sentidoRotacionTransportador) {
+		this.sentidoRotacionTransportador = sentidoRotacionTransportador;
+	}
+
+
+	public String getSentidohelice() {
+		return sentidohelice;
+	}
+
+
+	public void setSentidohelice(String sentidohelice) {
+		this.sentidohelice = sentidohelice;
+	}
+
+
+	public String getTipoHelice() {
+		return tipoHelice;
+	}
+
+
+	public void setTipoHelice(String tipoHelice) {
+		this.tipoHelice = tipoHelice;
+	}
+
+
+	public int getOpcionHelice() {
+		return opcionHelice;
+	}
+
+
+	public void setOpcionHelice(int opcionHelice) {
+		this.opcionHelice = opcionHelice;
+	}
+
+
+	public float getPasoUnico() {
+		return pasoUnico;
+	}
+
+
+	public void setPasoUnico(float pasoUnico) {
+		this.pasoUnico = pasoUnico;
+	}
+
+
+	public float getPaso1() {
+		return paso1;
+	}
+
+
+	public void setPaso1(float paso1) {
+		this.paso1 = paso1;
+	}
+
+
+	public float getPaso2() {
+		return paso2;
+	}
+
+
+	public void setPaso2(float paso2) {
+		this.paso2 = paso2;
+	}
+
+
+	public int getVelocidadGiro() {
+		return velocidadGiro;
+	}
+
+
+	public void setVelocidadGiro(int velocidadGiro) {
+		this.velocidadGiro = velocidadGiro;
+	}
+
+
+	public String getCategoriaPeso() {
+		return categoriaPeso;
+	}
+
+
+	public void setCategoriaPeso(String categoriaPeso) {
+		this.categoriaPeso = categoriaPeso;
+	}
+
+
+	public float getDiametroTornilloMetrico() {
+		return diametroTornilloMetrico;
+	}
+
+
+	public void setDiametroTornilloMetrico(float diametroTornilloMetrico) {
+		this.diametroTornilloMetrico = diametroTornilloMetrico;
+	}
+
+
+	public float getAreaRelleno() {
+		return areaRelleno;
+	}
+
+
+	public void setAreaRelleno(float areaRelleno) {
+		this.areaRelleno = areaRelleno;
+	}
+
+
+	public float getPi() {
+		return pi;
+	}
+
+
+	public void setPi(float pi) {
+		this.pi = pi;
+	}
+
+
+	public float getCoeficienteRelleno() {
+		return coeficienteRelleno;
+	}
+
+
+	public void setCoeficienteRelleno(float coeficienteRelleno) {
+		this.coeficienteRelleno = coeficienteRelleno;
+	}
+
+
+	public float getVelocidadDesplazamiento() {
+		return velocidadDesplazamiento;
+	}
+
+
+	public void setVelocidadDesplazamiento(float velocidadDesplazamiento) {
+		this.velocidadDesplazamiento = velocidadDesplazamiento;
+	}
+
+
+	public float getPaso() {
+		return paso;
+	}
+
+
+	public void setPaso(float paso) {
+		this.paso = paso;
+	}
+
+
+	public float getFlujoMaterial() {
+		return flujoMaterial;
+	}
+
+
+	public void setFlujoMaterial(float flujoMaterial) {
+		this.flujoMaterial = flujoMaterial;
+	}
+
+
+	public float getRho() {
+		return rho;
+	}
+
+
+	public void setRho(float rho) {
+		this.rho = rho;
+	}
+
+
+	public float getI() {
+		return i;
+	}
+
+
+	public void setI(float i) {
+		this.i = i;
+	}
+
+
+	public int getInclinacion() {
+		return inclinacion;
+	}
+
+
+	public void setInclinacion(int inclinacion) {
+		this.inclinacion = inclinacion;
+	}
+	
+	
+}
+
+
+
